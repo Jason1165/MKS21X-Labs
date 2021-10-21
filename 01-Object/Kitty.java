@@ -19,9 +19,9 @@ public class Kitty {
     return age;
   }
 
-  // public String toString() {
-  //
-  // }
+  public String toString() {
+    return "The amazing " + name;
+  }
 
   // mutator methods
   public void changeName(String newName) {
