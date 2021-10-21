@@ -19,6 +19,8 @@ public class Kitty {
     return age;
   }
 
+  // using toString will override printing the address
+  // it will give the object a string value we assign
   public String toString() {
     return "The amazing " + name;
   }
