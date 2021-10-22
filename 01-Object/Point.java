@@ -14,8 +14,15 @@ public class Point{
   public double getX(){
     return x;
   }
+
   public double getY(){
     return y;
+  }
+
+  public double distanceTo(Point coor2) {
+    double hor = Math.abs(x - coor2.getX());
+    double ver = Math.abs(y - coor2.getY());
+    return Math.hypot(hor, ver);
   }
 
   public static double distance(Point coor1, Point coor2) {
