@@ -10,6 +10,16 @@ public class Demo{
     Point perfSq4 = new Point(-7, -24);
     Point notO = new Point(1, -1);
     Point not1 = new Point(-4, 11);
+    System.out.println("toString");
+    System.out.println(P1);
+    System.out.println(P2);
+    System.out.println(origin);
+    System.out.println(perfSq);
+    System.out.println(perfSq2);
+    System.out.println(perfSq3);
+    System.out.println(perfSq4);
+    System.out.println(notO);
+    System.out.println(not1);
 
     System.out.println("static distance from class Demo");
     System.out.println(distance(P1,P2)); //call1

@@ -19,6 +19,10 @@ public class Point{
     return y;
   }
 
+  public String toString() {
+    return "("+x+", "+y+")";
+  }
+
   public double distanceTo(Point coor2) {
     double hor = Math.abs(x - coor2.getX());
     double ver = Math.abs(y - coor2.getY());
