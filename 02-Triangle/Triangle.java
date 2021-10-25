@@ -23,7 +23,6 @@ public class Triangle {
     if (x == 3) {
       return v3;
     }
-    return v1; //
   }
 
   public void setVertex(int x, Point where) {
@@ -36,7 +35,6 @@ public class Triangle {
     if (x == 3) {
       v3 = where;
     }
-    v1 = where; //
   }
 
   public String toString(){
@@ -49,7 +47,10 @@ public class Triangle {
       Point a = new Point(0, 0);
       Point b = new Point(0, 3);
       Point c = new Point(4, 0);
+      Point d = new Point(6, 0);
       Triangle abc = new Triangle(a, b, c);
+      System.out.println(abc);
+      abc.setVertex(3, d);
       System.out.println(abc);
     }
 
