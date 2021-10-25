@@ -66,6 +66,14 @@ public class Triangle {
       Triangle xyz = new Triangle(1, 1, 1, 6, 13, 1);
       Triangle def = new Triangle(0, 0, 0.5, 0, 0.5, Math.sqrt(3)/2);
       Triangle jkl = new Triangle(1, 1, Math.sqrt(2)/2 + 1, 1, 1, Math.sqrt(2)/2 + 1);
+      Triangle cero = new Triangle(0, 0, 0, 0, 0, 0);
+
+      System.out.println("cero\n" + cero);
+      cero.setVertex(1, new Point(1, 1));
+      cero.setVertex(2, new Point(1, 25));
+      cero.setVertex(3, new Point(8, 1));
+      System.out.println(cero);
+      System.out.println(cero.getPerimeter());
 
       System.out.println("\ntoString");
       System.out.println(abc);
