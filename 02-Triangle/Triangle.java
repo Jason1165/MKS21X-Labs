@@ -20,9 +20,9 @@ public class Triangle {
     if (x == 2) {
       return v2;
     }
-    if (x == 3) {
+    else //(x == 3) {
       return v3;
-    }
+    // }
   }
 
   public void setVertex(int x, Point where) {
@@ -49,9 +49,11 @@ public class Triangle {
       Point c = new Point(4, 0);
       Point d = new Point(6, 0);
       Triangle abc = new Triangle(a, b, c);
+      Triangle xyz = new Triangle(1, 1, 1, 6, 13, 1);
       System.out.println(abc);
       abc.setVertex(3, d);
       System.out.println(abc);
+      System.out.println(xyz);
     }
 
 }
