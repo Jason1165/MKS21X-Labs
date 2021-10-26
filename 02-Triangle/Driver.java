@@ -34,10 +34,18 @@ public class Driver {
 
     Triangle off = new Triangle(0, 0, 100, 200, 0, 4);
     Triangle off2 = new Triangle(aa, bb, ff, ee, cc, 4);
-    System.out.println("triangle equals");
-    System.out.println(def2.equals(def));
-    System.out.println(abc.equals(cero));
-    System.out.println(off.equals(off2));
+    // System.out.println("triangle equals");
+    // System.out.println(def2.equals(def));
+    // System.out.println(abc.equals(cero));
+    // System.out.println(off.equals(off2));
+
+    System.out.println("classify");
+    Triangle iso1 = new Triangle(0, 0, 0, 3, 3, 0);
+    Triangle equal1 = new Triangle(0, 0, 3, 0, 1.5, 1.5*Math.sqrt(3));
+    Triangle what = new Triangle(0, 111, 223, 12, 32, 23);
+    System.out.println(iso1.classify());
+    System.out.println(equal1.classify());
+    System.out.println(what.classify());
 
     // System.out.println("cero\n" + cero);
     // cero.setVertex(1, new Point(1, 1));

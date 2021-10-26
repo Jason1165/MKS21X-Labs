@@ -50,6 +50,24 @@ public class Triangle {
     return (vert1 && vert2 && vert3);
   }
 
+  public String classify() {
+    double h1 = v1.distanceTo(v2);
+    double h2 = v2.distanceTo(v3);
+    double h3 = v3.distanceTo(v1);
+    System.out.println(h1 + "  " + h2 + "  " + h3);
+    boolean len1 = closeEnough(h1, h2);
+    boolean len2 = closeEnough(h2, h3);
+    boolean len3 = closeEnough(h3, h1);
+    if (len1 && len2 && len3) {
+      return "equilateral";
+    }
+    if (len1 || len2 || len3) {
+      return "isosceles";
+    }
+    // System.out.println(len1 + "  " + len2 + "  " + len3);
+    return "scalene";
+  }
+
   // mutator
   public void setVertex(int x, Point where) {
     if (x == 1) {
