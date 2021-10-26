@@ -37,17 +37,36 @@ public class Driver {
     System.out.println(xyz.getPerimeter());
     System.out.println(def.getPerimeter());
     System.out.println(jkl.getPerimeter());
+
+    System.out.println("closeEnough");
+    double aa, bb, cc, dd, ee, ff, gg, hh;
+    aa = 0; bb = 0; cc = 0.000001; dd = 100.0; ee = 200.0; ff = 99.99999; gg = 0.0000009999; hh = 0.000002;
+    System.out.println(closeEnough(aa, bb)); // true
+    System.out.println(closeEnough(bb, cc)); // false
+    System.out.println(closeEnough(dd, ff)); // true
+    System.out.println(closeEnough(ee, ff)); // false
+    System.out.println(closeEnough(cc, gg)); // true
+    System.out.println(closeEnough(cc, hh)); // false
   }
 
-  public boolean closeEnough(double a, double b) {
+  public static boolean closeEnough(double a, double b) {
+    double max = b;
+    double diff = Math.abs(a-b);
+
     if (a == 0 && b == 0) {
       return true;
     }
-    double diff = Math.abs(a-b);
-    double percent = (diff/b)*100;
+
+    if (a > b) {
+      max = a;
+    }
+
+    double percent = (diff/max)*100;
+
     if (percent <= 0.001) {
       return true;
     }
+
     return false;
   }
 
