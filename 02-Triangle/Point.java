@@ -34,5 +34,5 @@ public class Point{
     double ver = Math.abs(coor1.getY() - coor2.getY());
     return Math.hypot(hor, ver);
   }
-
+  
 }
