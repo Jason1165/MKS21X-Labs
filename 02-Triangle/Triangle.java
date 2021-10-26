@@ -68,6 +68,16 @@ public class Triangle {
     return "scalene";
   }
 
+  public double area() {
+    double s = getPerimeter() * 0.5;
+    double a = v1.distanceTo(v2);
+    double b = v2.distanceTo(v3);
+    double c = v3.distanceTo(v1);
+    // System.out.println(s + "  " + a + "  " + b + "  " + c);
+    double are = Math.sqrt(s*(s-a)*(s-b)*(s-c));
+    return are;
+  }
+
   // mutator
   public void setVertex(int x, Point where) {
     if (x == 1) {
