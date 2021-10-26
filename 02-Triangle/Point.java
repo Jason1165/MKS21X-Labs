@@ -33,6 +33,12 @@ public class Point{
     return Math.hypot(hor, ver);
   }
 
+  public boolean equals(Point other) {
+    boolean point1 = closeEnough(x, other.getX());
+    boolean point2 = closeEnough(y, other.getY());
+    return (point1 && point2);
+  }
+
   // static methods
   public static double distance(Point coor1, Point coor2) {
     double hor = Math.abs(coor1.getX() - coor2.getX());
