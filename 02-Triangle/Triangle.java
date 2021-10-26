@@ -1,14 +1,14 @@
 public class Triangle {
 
+  // fields
   private Point v1, v2, v3;
 
-
+  // constructors
   public Triangle(Point V1, Point V2, Point V3) {
     v1 = V1;
     v2 = V2;
     v3 = V3;
   }
-
 
   public Triangle(double v1x, double v1y, double v2x, double v2y, double v3x, double v3y) {
     v1 = new Point(v1x, v1y);
@@ -16,7 +16,7 @@ public class Triangle {
     v3 = new Point(v3x, v3y);
   }
 
-
+  // accessor
   public Point getVertex(int x) {
     if (x == 1) {
       return v1;
@@ -29,7 +29,18 @@ public class Triangle {
     // }
   }
 
+  public String toString(){
+    return "{" + v1 + ", " + v2 + ", " + v3 + "}";
+  }
 
+  public double getPerimeter() {
+    double h1 = v1.distanceTo(v2);
+    double h2 = v2.distanceTo(v3);
+    double h3 = v3.distanceTo(v1);
+    return h1+h2+h3;
+  }
+
+  // mutator
   public void setVertex(int x, Point where) {
     if (x == 1) {
       v1 = where;
@@ -43,16 +54,21 @@ public class Triangle {
   }
 
 
-  public String toString(){
-    return "{" + v1 + ", " + v2 + ", " + v3 + "}";
-  }
-
-
-  public double getPerimeter() {
-    double h1 = v1.distanceTo(v2);
-    double h2 = v2.distanceTo(v3);
-    double h3 = v3.distanceTo(v1);
-    return h1+h2+h3;
+  // static methods
+  public static boolean closeEnough(double a, double b) {
+    double max = b;
+    double diff = Math.abs(a-b);
+    if (a == 0 && b == 0) {
+      return true;
+    }
+    if (a > b) {
+      max = a;
+    }
+    double percent = (diff/max)*100;
+    if (percent <= 0.001) {
+      return true;
+    }
+    return false;
   }
 
 }

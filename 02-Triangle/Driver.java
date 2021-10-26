@@ -52,21 +52,16 @@ public class Driver {
   public static boolean closeEnough(double a, double b) {
     double max = b;
     double diff = Math.abs(a-b);
-
     if (a == 0 && b == 0) {
       return true;
     }
-
     if (a > b) {
       max = a;
     }
-
     double percent = (diff/max)*100;
-
     if (percent <= 0.001) {
       return true;
     }
-
     return false;
   }
 
