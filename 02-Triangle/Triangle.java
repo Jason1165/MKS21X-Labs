@@ -40,6 +40,16 @@ public class Triangle {
     return h1+h2+h3;
   }
 
+  public boolean equals(Triangle other) {
+    boolean vert1 = v1.equals(other.getVertex(1));
+    boolean vert2 = v2.equals(other.getVertex(2));
+    boolean vert3 = v3.equals(other.getVertex(3));
+    // System.out.println(v1 + "  " + v2 + "   " + v3);
+    // System.out.println(vert1 + "" + vert2 + "" + vert3);
+    // System.out.println(other.getVertex(1) + "   " + other.getVertex(2) + "   " + other.getVertex(3));
+    return (vert1 && vert2 && vert3);
+  }
+
   // mutator
   public void setVertex(int x, Point where) {
     if (x == 1) {
