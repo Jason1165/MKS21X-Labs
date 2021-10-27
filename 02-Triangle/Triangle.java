@@ -57,7 +57,7 @@ public class Triangle {
     double h1 = v1.distanceTo(v2);
     double h2 = v2.distanceTo(v3);
     double h3 = v3.distanceTo(v1);
-    System.out.println(h1 + "  " + h2 + "  " + h3);
+    // System.out.println(h1 + "  " + h2 + "  " + h3);
     boolean len1 = closeEnough(h1, h2);
     boolean len2 = closeEnough(h2, h3);
     boolean len3 = closeEnough(h3, h1);
