@@ -34,6 +34,9 @@ public class Point{
   }
 
   public boolean equals(Point other) {
+    if (other == null) {
+      return false;
+    }
     boolean point1 = closeEnough(x, other.getX());
     boolean point2 = closeEnough(y, other.getY());
     return (point1 && point2);

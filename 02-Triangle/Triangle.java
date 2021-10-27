@@ -41,6 +41,9 @@ public class Triangle {
   }
 
   public boolean equals(Triangle other) {
+    if (other == null ) {
+      return false;
+    }
     boolean vert1 = v1.equals(other.getVertex(1));
     boolean vert2 = v2.equals(other.getVertex(2));
     boolean vert3 = v3.equals(other.getVertex(3));
