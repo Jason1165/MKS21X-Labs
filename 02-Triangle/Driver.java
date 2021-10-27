@@ -1,83 +1,45 @@
 public class Driver {
   public static void main(String[] args) {
 
-    Point a = new Point(0, 0);
-    Point b = new Point(0, 3);
-    Point c = new Point(6, 0);
-    Point d = new Point(4, 0);
+    double zer = 0.0;
+    double notZe = 0.00001;
+    double notZ = 0.00000999999;
+    double x1 = 100.0;
+    double x2 = 200.0;
+    double x3 = 99.99999;
 
-    Triangle abc = new Triangle(a, b, c);
-    Triangle xyz = new Triangle(1, 1, 1, 6, 13, 1);
-    Triangle def = new Triangle(0, 0, 0.5, 0, 0.5, Math.sqrt(3)/2);
-    Triangle def2 = new Triangle(0, 0, 0.5, 0, 0.5, Math.sqrt(3)/2);
-    Triangle jkl = new Triangle(1, 1, Math.sqrt(2)/2 + 1, 1, 1, Math.sqrt(2)/2 + 1);
-    Triangle cero = new Triangle(0, 0, 0, 0, 0, 0);
+    System.out.println("\nTesting the Equality of values");
+    System.out.println(closeEnough(x1, x3)); // true
+    System.out.println(closeEnough(x2, x3)); // false
+    System.out.println(closeEnough(zer, notZe)); // false
+    System.out.println(closeEnough(notZe, notZ)); // true
 
-    double aa, bb, cc, dd, ee, ff, gg, hh;
-    aa = 0; bb = 0; cc = 0.000001; dd = 100.0; ee = 200.0;
-    ff = 99.99999; gg = 0.0000009999; hh = 0.000002;
-    System.out.println("\nTesting closeEnough");
-    System.out.println(closeEnough(aa, bb)); // true
-    System.out.println(closeEnough(bb, cc)); // false
-    System.out.println(closeEnough(dd, ff)); // true
-    System.out.println(closeEnough(ee, ff)); // false
-    System.out.println(closeEnough(cc, gg)); // true
-    System.out.println(closeEnough(cc, hh)); // false
 
-    Point p3 = new Point(0, 0);
-    Point p4 = new Point(0, 100.0);
-    Point p5 = new Point(0, 99.99999);
-    System.out.println("\nTesting points equals");
-    System.out.println(p3.equals(p4));
-    System.out.println(p4.equals(p5));
-    System.out.println(a.equals(p3));
+    Point origin = new Point(0, 0);
+    Point zero1 = new Point(0, notZe);
+    Point zero2 = new Point(0, 100);
+    Point zero3 = new Point(0, 99.99999999);
+    Point zero4 = new Point(0, 200);
 
-    Triangle off = new Triangle(0, 0, 100, 200, 0, 4);
-    Triangle off2 = new Triangle(aa, bb, ff, ee, cc, 4);
-    System.out.println("\nTesting triangle equals");
-    System.out.println(def2.equals(def));
-    System.out.println(abc.equals(cero));
-    System.out.println(off.equals(off2));
+    System.out.println("\nTesting the Equality of Points");
+    System.out.println(origin.equals(zero1)); // false
+    System.out.println(zero2.equals(zero3)); // true
+    System.out.println(zero3.equals(zero4)); // false
+    System.out.println(origin.equals(null)); // false
 
-    Triangle iso1 = new Triangle(0, 0, 0, 3, 3, 0);
-    Triangle equal1 = new Triangle(0, 0, 3, 0, 1.5, 1.5*Math.sqrt(3));
-    Triangle what = new Triangle(0, 111, 223, 12, 32, 23);
-    System.out.println("\nTesting classify");
-    System.out.println(iso1.classify());
-    System.out.println(equal1.classify());
-    System.out.println(what.classify());
 
-    System.out.println("\nTesting area");
-    System.out.println(xyz.area());
-    System.out.println(jkl.area());
-    System.out.println(cero.area());
-
-    System.out.println("\nTesting cero\n" + cero);
-    cero.setVertex(1, new Point(1, 1));
-    cero.setVertex(2, new Point(1, 25));
-    cero.setVertex(3, new Point(8, 1));
-    System.out.println(cero);
-    System.out.println(cero.getPerimeter());
-
-    System.out.println("\nTesting toString");
+    Point P1 = new Point(0, 3);
+    Point P2 = new Point(4, 0);
+    Triangle abc = new Triangle(origin, P1, P2);
+    Triangle abc2 = new Triangle(0, 0, 0, 3, 4, 0);
+    System.out.println("\nTesting a 3/4/5 Triangle");
     System.out.println(abc);
-    abc.setVertex(3, d);
-    System.out.println(abc);
-    System.out.println(xyz);
-    System.out.println(def);
-    System.out.println(jkl);
-
-    System.out.println("\nTesting getVertex");
-    System.out.println(abc.getVertex(2));
-    System.out.println(xyz.getVertex(1));
-    System.out.println(def.getVertex(3));
-    System.out.println(jkl.getVertex(2));
-
-    System.out.println("\nTesting getPerimeter");
+    System.out.println(abc.equals(abc2));
+    System.out.println(abc.classify());
+    System.out.println(abc.area());
     System.out.println(abc.getPerimeter());
-    System.out.println(xyz.getPerimeter());
-    System.out.println(def.getPerimeter());
-    System.out.println(jkl.getPerimeter());
+
+
   }
 
   public static boolean closeEnough(double a, double b) {
