@@ -15,6 +15,7 @@ public class RationalNumber extends RealNumber
       denominator = 1;
       numerator = 0;
     }
+    this.reduce();
   }
 
   public double getValue(){
@@ -68,6 +69,9 @@ public class RationalNumber extends RealNumber
   *@return the value of the GCD
   */
   private static int gcd(int a, int b){
+    if (a == 0) {
+      return 1;
+    }
     int large = Math.abs(a); // Math.abs for the sake of when a number is negative
     int small = Math.abs(b);
     if ( small > large) {
