@@ -17,5 +17,10 @@ public class Driver {
     System.out.println("\nTesting division");
     System.out.println(z.divide(x));
     System.out.println(z.divide(z));
+
+    System.out.println("\nTesting toString");
+    System.out.println(x);
+    System.out.println(y);
+    System.out.println(z);
   }
 }
