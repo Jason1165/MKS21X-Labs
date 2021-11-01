@@ -11,10 +11,14 @@ public class RationalNumber extends RealNumber
     super(0.0);//this value is ignored!
     numerator = nume;
     denominator = deno;
+    if (deno == 0) {
+      denominator = 1;
+      numerator = 0;
+    }
   }
 
   public double getValue(){
-    return numo/demo;
+    return numerator/denominator;
   }
 
   /**
@@ -59,9 +63,24 @@ public class RationalNumber extends RealNumber
   *@return the value of the GCD
   */
   private static int gcd(int a, int b){
+    int large = a;
+    int small = b;
+    if ( b > a) {
+      large = b;
+      small = a;
+    }
+    int remain = 1;
+    int result = 1;
+    while (remain != 0) {
+      remain = large%small;
+      result = small;
+      large = small;
+      small = remain;
+    }
+
     /*use euclids method or a better one*/
     //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    return result;
   }
 
   /**
