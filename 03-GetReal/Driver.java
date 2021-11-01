@@ -29,6 +29,9 @@ public class Driver {
     RationalNumber R4 = new RationalNumber(1, 0);
     RationalNumber R5 = new RationalNumber(1000, 0);
     RationalNumber R6 = new RationalNumber(1, 10);
+    RationalNumber R7 = new RationalNumber(1, 2);
+    RationalNumber R8 = new RationalNumber(2, 5);
+    RationalNumber R9 = new RationalNumber(8, 5);
 
     // System.out.println("\nTesting toString for RationalNumber and reduction");
     // System.out.println(R1);
@@ -50,6 +53,21 @@ public class Driver {
     System.out.println(R6.add(R3));
     System.out.println(R2.add(R3));
     System.out.println(R4.add(R6));
+    System.out.println(R7.add(R8));
+    System.out.println("\nTesting subtraction");
+    System.out.println(R3.subtract(R6));
+    System.out.println(R2.subtract(R3));
+    System.out.println(R4.subtract(R6));
+    System.out.println(R7.subtract(R8));
+    System.out.println("\nTesting division");
+    // System.out.println(R4.divide(R5));
+    System.out.println(R1.divide(R2));
+    System.out.println(R9.divide(R8));
+    System.out.println(R8.divide(R7));
+    System.out.println("\nTesting multiplication");
+    System.out.println(R1.multiply(R4));
+    System.out.println(R8.multiply(R9));
+    System.out.println(R3.multiply(R7));
 
     // System.out.println(R1);
     // reduce(R1);
