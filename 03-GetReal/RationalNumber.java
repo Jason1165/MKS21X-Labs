@@ -46,6 +46,11 @@ public class RationalNumber extends RealNumber
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
+    this.reduce();
+    other.reduce();
+    if (this.numerator == other.getNumerator() && this.denominator == other.getDenominator()) {
+      return true;
+    }
     return false;
   }
 
