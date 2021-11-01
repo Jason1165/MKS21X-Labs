@@ -24,8 +24,19 @@ public class Driver {
     // System.out.println(z);
 
     RationalNumber R1 = new RationalNumber(100, 500);
-    System.out.println(R1);
-    reduce(R1);
+    RationalNumber R2 = new RationalNumber(10, 50);
+    RationalNumber R3 = new RationalNumber(11, 50);
+    RationalNumber R4 = new RationalNumber(1, 0);
+    RationalNumber R5 = new RationalNumber(1000, 0);
+    System.out.println(R5); // constructor correct
+    System.out.println("\nTesting equality");
+    System.out.println(R1.equals(R2));
+    System.out.println(R1.equals(R3));
+    System.out.println(R4.equals(R5));
+
+
+    // System.out.println(R1);
+    // reduce(R1);
     // System.out.println(gcd(210, 45));
     // System.out.println(gcd(97, 20));
     // System.out.println(gcd(-1, 1));
