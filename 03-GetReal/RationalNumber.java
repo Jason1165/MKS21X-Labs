@@ -63,11 +63,11 @@ public class RationalNumber extends RealNumber
   *@return the value of the GCD
   */
   private static int gcd(int a, int b){
-    int large = a;
-    int small = b;
-    if ( b > a) {
-      large = b;
-      small = a;
+    int large = Math.abs(a); // Math.abs for the sake of when a number is negative
+    int small = Math.abs(b);
+    if ( small > large) {
+      large = small;
+      small = Math.abs(a);
     }
     int remain = 1;
     int result = 1;
@@ -89,8 +89,11 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-
+    int redu = gcd(numerator, denominator);
+    numerator = numerator/redu;
+    denominator = denominator/redu;
   }
+
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
   *Return a new RationalNumber that is the product of this and the other
