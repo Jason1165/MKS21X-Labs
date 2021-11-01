@@ -23,18 +23,27 @@ public class Driver {
     // System.out.println(y);
     // System.out.println(z);
 
-    RationalNumber R1 = new RationalNumber(2, 5);
-    System.out.println(gcd(210, 45));
-    System.out.println(gcd(97, 20));
-    System.out.println(gcd(-1, 1));
+    RationalNumber R1 = new RationalNumber(100, 500);
+    System.out.println(R1);
+    reduce(R1);
+    // System.out.println(gcd(210, 45));
+    // System.out.println(gcd(97, 20));
+    // System.out.println(gcd(-1, 1));
+  }
+
+  public static void reduce(RationalNumber why){
+    int redu = gcd(why.getNumerator(), why.getDenominator());
+    int numerator1 = why.getNumerator()/redu;
+    int denominator1 = why.getDenominator()/redu;
+    System.out.println(numerator1+"/" +denominator1);
   }
 
   public static int gcd(int a, int b){
-    int large = a;
-    int small = b;
-    if ( b > a) {
-      large = b;
-      small = a;
+    int large = Math.abs(a);
+    int small = Math.abs(b);
+    if ( small > large) {
+      large = small;
+      small = Math.abs(a);
     }
     int remain = 1;
     int result = 1;
