@@ -28,23 +28,28 @@ public class Driver {
     RationalNumber R3 = new RationalNumber(11, 50);
     RationalNumber R4 = new RationalNumber(1, 0);
     RationalNumber R5 = new RationalNumber(1000, 0);
-    System.out.println("\nTesting toString for RationalNumber and reduction");
-    System.out.println(R1);
-    System.out.println(R2);
-    System.out.println(R3);
-    System.out.println(R4);
-    System.out.println(R5); // constructor correct
-    System.out.println("\nTesting reciprocal");
-    System.out.println(R1.reciprocal());
-    System.out.println(R2.reciprocal());
-    System.out.println(R3.reciprocal());
-    System.out.println(R4.reciprocal());
-    System.out.println(R5.reciprocal());
-    System.out.println("\nTesting equality");
-    System.out.println(R1.equals(R2));
-    System.out.println(R1.equals(R3));
-    System.out.println(R4.equals(R5));
+    RationalNumber R6 = new RationalNumber(1, 10);
 
+    // System.out.println("\nTesting toString for RationalNumber and reduction");
+    // System.out.println(R1);
+    // System.out.println(R2);
+    // System.out.println(R3);
+    // System.out.println(R4);
+    // System.out.println(R5); // constructor correct
+    // System.out.println("\nTesting reciprocal");
+    // System.out.println(R1.reciprocal());
+    // System.out.println(R2.reciprocal());
+    // System.out.println(R3.reciprocal());
+    // System.out.println(R4.reciprocal());
+    // System.out.println(R5.reciprocal());
+    // System.out.println("\nTesting equality");
+    // System.out.println(R1.equals(R2));
+    // System.out.println(R1.equals(R3));
+    // System.out.println(R4.equals(R5));
+    System.out.println("\nTesting addition");
+    System.out.println(R6.add(R3));
+    System.out.println(R2.add(R3));
+    System.out.println(R4.add(R6));
 
     // System.out.println(R1);
     // reduce(R1);
