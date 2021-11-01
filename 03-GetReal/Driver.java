@@ -28,6 +28,11 @@ public class Driver {
     RationalNumber R3 = new RationalNumber(11, 50);
     RationalNumber R4 = new RationalNumber(1, 0);
     RationalNumber R5 = new RationalNumber(1000, 0);
+    System.out.println("\nTesting toString for RationalNumber and reduction");
+    System.out.println(R1);
+    System.out.println(R2);
+    System.out.println(R3);
+    System.out.println(R4);
     System.out.println(R5); // constructor correct
     System.out.println("\nTesting equality");
     System.out.println(R1.equals(R2));
@@ -42,31 +47,31 @@ public class Driver {
     // System.out.println(gcd(-1, 1));
   }
 
-  public static void reduce(RationalNumber why){
-    int redu = gcd(why.getNumerator(), why.getDenominator());
-    int numerator1 = why.getNumerator()/redu;
-    int denominator1 = why.getDenominator()/redu;
-    System.out.println(numerator1+"/" +denominator1);
-  }
-
-  public static int gcd(int a, int b){
-    int large = Math.abs(a);
-    int small = Math.abs(b);
-    if ( small > large) {
-      large = small;
-      small = Math.abs(a);
-    }
-    int remain = 1;
-    int result = 1;
-    while (remain != 0) {
-      remain = large%small;
-      result = small;
-      large = small;
-      small = remain;
-    }
-
-    /*use euclids method or a better one*/
-    //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return result;
-  }
+  // public static void reduce(RationalNumber why){
+  //   int redu = gcd(why.getNumerator(), why.getDenominator());
+  //   int numerator1 = why.getNumerator()/redu;
+  //   int denominator1 = why.getDenominator()/redu;
+  //   System.out.println(numerator1+"/" +denominator1);
+  // }
+  //
+  // public static int gcd(int a, int b){
+  //   int large = Math.abs(a);
+  //   int small = Math.abs(b);
+  //   if ( small > large) {
+  //     large = small;
+  //     small = Math.abs(a);
+  //   }
+  //   int remain = 1;
+  //   int result = 1;
+  //   while (remain != 0) {
+  //     remain = large%small;
+  //     result = small;
+  //     large = small;
+  //     small = remain;
+  //   }
+  //
+  //   /*use euclids method or a better one*/
+  //   //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
+  //   return result;
+  // }
 }
