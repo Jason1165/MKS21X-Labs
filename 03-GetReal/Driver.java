@@ -34,6 +34,12 @@ public class Driver {
     System.out.println(R3);
     System.out.println(R4);
     System.out.println(R5); // constructor correct
+    System.out.println("\nTesting reciprocal");
+    System.out.println(R1.reciprocal());
+    System.out.println(R2.reciprocal());
+    System.out.println(R3.reciprocal());
+    System.out.println(R4.reciprocal());
+    System.out.println(R5.reciprocal());
     System.out.println("\nTesting equality");
     System.out.println(R1.equals(R2));
     System.out.println(R1.equals(R3));
