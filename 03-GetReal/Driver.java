@@ -73,15 +73,22 @@ public class Driver {
     RealNumber N2 = new RationalNumber(10, 1);
     RealNumber N3 = new RationalNumber(2, 1);
     RealNumber N4 = new RationalNumber(22, 7);
-    System.out.println("\nTesting extensions");
+    // System.out.println("\nTesting extensions");
     // System.out.println(N1);
     // System.out.println(N2);
     // System.out.println(N4);
-    System.out.println(N4.getValue());
+    // System.out.println(N4.getValue());
     // System.out.println(N1.equals(N2));
     // System.out.println(N1.equals(N2.getValue()));
     // System.out.println(N1.add(N2));
     // System.out.println(N1.divide(N2));
+    System.out.println(N1.equals(null));
+    System.out.println(N2.equals(null));
+    // System.out.println(N3.add(null));
+    // System.out.println(N3.subtract(null));
+    // System.out.println(N3.multiply(null));
+    // System.out.println(N3.divide(null));
+    // System.out.println(R1.add(null));
 
 
     // System.out.println(R1);
