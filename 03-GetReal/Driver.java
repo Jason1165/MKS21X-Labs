@@ -1,9 +1,10 @@
 public class Driver {
 
   public static void main(String[] args) {
-    // RealNumber x = new RealNumber(1);
-    // RealNumber y = new RealNumber(2);
-    // RealNumber z = new RealNumber(3.5);
+    RealNumber x = new RealNumber(1);
+    RealNumber y = new RealNumber(2);
+    RealNumber z = new RealNumber(3.5);
+
     //
     // System.out.println("\nTesting 1 and 2");
     // System.out.println(x.add(y));
@@ -49,25 +50,39 @@ public class Driver {
     // System.out.println(R1.equals(R2));
     // System.out.println(R1.equals(R3));
     // System.out.println(R4.equals(R5));
-    System.out.println("\nTesting addition");
-    System.out.println(R6.add(R3));
-    System.out.println(R2.add(R3));
-    System.out.println(R4.add(R6));
-    System.out.println(R7.add(R8));
-    System.out.println("\nTesting subtraction");
-    System.out.println(R3.subtract(R6));
-    System.out.println(R2.subtract(R3));
-    System.out.println(R4.subtract(R6));
-    System.out.println(R7.subtract(R8));
-    System.out.println("\nTesting division");
-    // System.out.println(R4.divide(R5));
-    System.out.println(R1.divide(R2));
-    System.out.println(R9.divide(R8));
-    System.out.println(R8.divide(R7));
-    System.out.println("\nTesting multiplication");
-    System.out.println(R1.multiply(R4));
-    System.out.println(R8.multiply(R9));
-    System.out.println(R3.multiply(R7));
+    // System.out.println("\nTesting addition");
+    // System.out.println(R6.add(R3));
+    // System.out.println(R2.add(R3));
+    // System.out.println(R4.add(R6));
+    // System.out.println(R7.add(R8));
+    // System.out.println("\nTesting subtraction");
+    // System.out.println(R3.subtract(R6));
+    // System.out.println(R2.subtract(R3));
+    // System.out.println(R4.subtract(R6));
+    // System.out.println(R7.subtract(R8));
+    // System.out.println("\nTesting division");
+    // // System.out.println(R4.divide(R5));
+    // System.out.println(R1.divide(R2));
+    // System.out.println(R9.divide(R8));
+    // System.out.println(R8.divide(R7));
+    // System.out.println("\nTesting multiplication");
+    // System.out.println(R1.multiply(R4));
+    // System.out.println(R8.multiply(R9));
+    // System.out.println(R3.multiply(R7));
+    RealNumber N1 = new RealNumber(10);
+    RealNumber N2 = new RationalNumber(10, 1);
+    RealNumber N3 = new RationalNumber(2, 1);
+    RealNumber N4 = new RationalNumber(22, 7);
+    System.out.println("\nTesting extensions");
+    // System.out.println(N1);
+    // System.out.println(N2);
+    // System.out.println(N4);
+    System.out.println(N4.getValue());
+    // System.out.println(N1.equals(N2));
+    // System.out.println(N1.equals(N2.getValue()));
+    // System.out.println(N1.add(N2));
+    // System.out.println(N1.divide(N2));
+
 
     // System.out.println(R1);
     // reduce(R1);
