@@ -6,6 +6,26 @@ public class RealNumber{
   }
 
   /*
+  *returns a negative value when other is larger,
+  *positive when other is smaller,
+  *or 0 when they are equal
+  */
+  public int compareTo(RealNumber other) {
+    if (this.getValue() == other.getValue()) {
+      return 0;
+    }
+    if (this.getValue() > other.getValue()) {
+      return 1;
+    }
+    if (this.getValue() < other.getValue()) {
+      return -1;
+    }
+    else {
+      return 1010101; // should never happen
+    }
+  }
+
+  /*
   *Return the sum of this and the other
   */
   public double add(RealNumber other){
