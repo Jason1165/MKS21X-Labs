@@ -25,6 +25,12 @@ public class RealNumber{
     }
   }
 
+  /* returns if the numbers are equal
+  */
+  public boolean equals(RealNumber other) {
+    return(this.compareTo(other) == 0);
+  }
+
   /*
   *Return the sum of this and the other
   */
