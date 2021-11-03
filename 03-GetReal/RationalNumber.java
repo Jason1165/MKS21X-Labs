@@ -19,9 +19,7 @@ public class RationalNumber extends RealNumber
   }
 
   public double getValue(){
-    RealNumber num = new RealNumber(numerator);
-    RealNumber den = new RealNumber(denominator);
-    return num.divide(den);
+    return (double)(numerator)/(double)(denominator);
   }
 
   /**
