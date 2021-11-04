@@ -3,5 +3,10 @@ public class Tester {
     SuperArray SA = new SuperArray();
     System.out.println(SA);
     System.out.println(SA.toStringDebug());
+    System.out.println(SA.size());
+    SA.add("foo");
+    System.out.println(SA);
+    System.out.println(SA.toStringDebug());
+    System.out.println(SA.size());
   }
 }
