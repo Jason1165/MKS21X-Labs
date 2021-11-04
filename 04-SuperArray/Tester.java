@@ -8,5 +8,9 @@ public class Tester {
     System.out.println(SA);
     System.out.println(SA.toStringDebug());
     System.out.println(SA.size());
+    SA.add("null");
+    System.out.println(SA);
+    System.out.println(SA.toStringDebug());
+    System.out.println(SA.size());
   }
 }
