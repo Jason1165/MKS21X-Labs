@@ -14,13 +14,19 @@ public class SuperArray {
   }
 
   public void add(String word) {
-
+    this.data[size] = word;
+    this.size ++;
   }
 
   public String toString() {
     String ans = "[";
     for (int i = 0; i < size; i++) {
-      ans += this.data[i];
+      if (this.data[i] != null) {
+        ans += '"' + this.data[i] + '"';
+      }
+      else {
+        ans += this.data[i];
+      }
       if (i+1 != size) {
         ans += ", ";
       }
@@ -31,8 +37,13 @@ public class SuperArray {
   public String toStringDebug() {
     String ans = "[";
     for (int i = 0; i < data.length; i++) {
-      ans += this.data[i];
-      if (i+1 != size) {
+      if (this.data[i] != null) {
+        ans += '"' + this.data[i] + '"';
+      }
+      else {
+        ans += this.data[i];
+      }
+      if (i+1 != data.length) {
         ans += ", ";
       }
     }
