@@ -13,24 +13,23 @@ public class SuperArray {
     return size;
   }
 
-  public void add(String word) {
+  public boolean add(String word) {
     this.data[size] = word;
     this.size ++;
+    return true;
   }
 
   public void remove(int loc) {
-    while(loc <= size) {
-      this.data[loc] = this.data[loc+1];
-      loc ++;
+    for (int i = loc; i <= size; i++) {
+      this.data[i] = this.data[i+1];
     }
-    this.size --;
   }
 
   public String toString() {
     String ans = "[";
     for (int i = 0; i < size; i++) {
       if (this.data[i] != null) {
-        ans += '"' + this.data[i] + '"';
+        ans += this.data[i];
       }
       else {
         ans += this.data[i];
@@ -46,7 +45,7 @@ public class SuperArray {
     String ans = "[";
     for (int i = 0; i < data.length; i++) {
       if (this.data[i] != null) {
-        ans += '"' + this.data[i] + '"';
+        ans += this.data[i];
       }
       else {
         ans += this.data[i];
@@ -58,4 +57,21 @@ public class SuperArray {
     return ans += "]";
   }
 
+  public String get(int index) {
+    if (index < 0 || index >= size) {
+      System.out.println("SuperArray.java Error for GET, index out of bounds at " + index);
+      return null;
+    }
+      return this.data[index];
+  }
+
+  public String set(int index, String element) {
+    if (index < 0 || index >= size) {
+      System.out.println("SuperArray.java Error for SET, index out of bounds at " + index);
+      return null;
+    }
+    String ori = this.data[index];
+    this.data[index] = element;
+    return ori;
+    }
 }
