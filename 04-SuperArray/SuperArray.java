@@ -18,6 +18,14 @@ public class SuperArray {
     this.size ++;
   }
 
+  public void remove(int loc) {
+    while(loc <= size) {
+      this.data[loc] = this.data[loc+1];
+      loc ++;
+    }
+    this.size --;
+  }
+
   public String toString() {
     String ans = "[";
     for (int i = 0; i < size; i++) {
