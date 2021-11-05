@@ -4,13 +4,26 @@ public class Tester {
     System.out.println(SA);
     System.out.println(SA.toStringDebug());
     System.out.println(SA.size());
-    SA.add("foo");
+
+    SA.add("print");
+    SA.add("hello");
+    SA.add("world");
+    SA.add("why");
+    SA.add("not food");
+    SA.add("more");
+    SA.add("max");
     System.out.println(SA);
     System.out.println(SA.toStringDebug());
     System.out.println(SA.size());
-    SA.add("null");
+
+    SA.remove(2);
     System.out.println(SA);
     System.out.println(SA.toStringDebug());
     System.out.println(SA.size());
+
+    // SA.add("null");
+    // System.out.println(SA);
+    // System.out.println(SA.toStringDebug());
+    // System.out.println(SA.size());
   }
 }
