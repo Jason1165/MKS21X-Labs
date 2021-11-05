@@ -28,15 +28,23 @@ public class SuperArray {
   }
 
   public boolean add(String word) {
+    if (size == data.length){
+      resize();
+    }
     this.data[size] = word;
     this.size ++;
     return true;
   }
 
-  public boolean remove(int loc) {
-    for (int i = loc; i <= size; i++) {
+  public boolean add(String word, int index) {
+    return true;
+  }
+
+  public boolean remove(int index) {
+    for (int i = index; i <= size; i++) {
       this.data[i] = this.data[i+1];
     }
+    this.size --;
     return true;
   }
 
