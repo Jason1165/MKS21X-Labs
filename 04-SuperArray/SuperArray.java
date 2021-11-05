@@ -9,8 +9,22 @@ public class SuperArray {
     size = 0;
   }
 
+  public SuperArray(int initialCapacity) {
+    data = new String[initialCapacity];
+    size = 0;
+  }
+
+  // methods
   public int size() {
     return size;
+  }
+
+  private void resize() {
+    String[] dooble = new String[data.length*2 + 1];
+    for (int i = 0; i < data.length; i++) {
+      dooble[i] = data[i];
+    }
+    this.data = dooble;
   }
 
   public boolean add(String word) {
@@ -19,10 +33,11 @@ public class SuperArray {
     return true;
   }
 
-  public void remove(int loc) {
+  public boolean remove(int loc) {
     for (int i = loc; i <= size; i++) {
       this.data[i] = this.data[i+1];
     }
+    return true;
   }
 
   public String toString() {
@@ -59,7 +74,7 @@ public class SuperArray {
 
   public String get(int index) {
     if (index < 0 || index >= size) {
-      System.out.println("SuperArray.java Error for GET, index out of bounds at " + index);
+      System.out.println("\tGet SuperArrayIndexOutOfBoundsException: " + index + "\n\tSize was: " + size);
       return null;
     }
       return this.data[index];
@@ -67,7 +82,7 @@ public class SuperArray {
 
   public String set(int index, String element) {
     if (index < 0 || index >= size) {
-      System.out.println("SuperArray.java Error for SET, index out of bounds at " + index);
+      System.out.println("\tSet SuperArrayIndexOutOfBoundsException: " + index + "\n\tSize was: " + size);
       return null;
     }
     String ori = this.data[index];
