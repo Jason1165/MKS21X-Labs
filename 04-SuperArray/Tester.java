@@ -26,6 +26,8 @@ public class Tester {
     System.out.println(Test1.toStringDebug());
     Test1.add("tres");
     System.out.println(Test1.toStringDebug());
+    System.out.println(Test1.remove(2));
+    System.out.println(Test1.toStringDebug());
     // System.out.println(SA2.remove(2));
     // System.out.println(SA2);
 
