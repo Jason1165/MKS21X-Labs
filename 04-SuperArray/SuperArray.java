@@ -40,12 +40,13 @@ public class SuperArray {
     return true;
   }
 
-  public boolean remove(int index) {
+  public String remove(int index) {
+    String word = this.get(index);
     for (int i = index; i <= size; i++) {
       this.data[i] = this.data[i+1];
     }
     this.size --;
-    return true;
+    return word;
   }
 
   public String toString() {
