@@ -67,6 +67,18 @@ public class SuperArray {
     }
   }
 
+
+  public boolean remove(String target) {
+    int ind = this.indexOf(target);
+    if (ind == -1) {
+      return false;
+    }
+    else{
+      this.remove(ind);
+      return true;
+    }
+  }
+
   // indexOf
   public int indexOf(String target) {
     for (int i = 0; i < size; i++) {
