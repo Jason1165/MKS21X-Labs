@@ -41,7 +41,10 @@ public class SuperArray {
       System.out.println("add: SuperArrayIndexOutOfBoundsException: " + index);
     }
     else {
-      for (int i = size+1; i < index; i--) {
+      if (size == data.length){
+        resize();
+      }
+      for (int i = size; i > index; i--) {
         data[i] = data[i-1];
       }
       data[index] = value;
@@ -54,14 +57,14 @@ public class SuperArray {
       System.out.println("Remove SuperArrayIndexOutOfBoundsException: " + index);
       return null;
     }
-
-    String word = this.get(index);
-    for (int i = index; i <= size; i++) {
-      this.data[i] = this.data[i+1];
+    else {
+      String word = this.get(index);
+      for (int i = index; i <= size; i++) {
+        this.data[i] = this.data[i+1];
+      }
+      this.size --;
+      return word;
     }
-
-    this.size --;
-    return word;
   }
 
   // indexOf
@@ -87,12 +90,7 @@ public class SuperArray {
   public String toString() {
     String ans = "[";
     for (int i = 0; i < size; i++) {
-      if (this.data[i] != null) {
         ans += this.data[i];
-      }
-      else {
-        ans += this.data[i];
-      }
       if (i+1 != size) {
         ans += ", ";
       }
@@ -103,12 +101,7 @@ public class SuperArray {
   public String toStringDebug() {
     String ans = "[";
     for (int i = 0; i < data.length; i++) {
-      if (this.data[i] != null) {
         ans += this.data[i];
-      }
-      else {
-        ans += this.data[i];
-      }
       if (i+1 != data.length) {
         ans += ", ";
       }
