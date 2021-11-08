@@ -27,7 +27,6 @@ public class SuperArray {
     this.data = dooble;
   }
 
-  // reminder to test for out of bounds
   public boolean add(String word) {
     if (size == data.length){
       resize();
@@ -37,19 +36,26 @@ public class SuperArray {
     return true;
   }
 
-  public boolean add(String word, int index) {
-    return true;
+  public void add(String word, int index) {
+
   }
 
   public String remove(int index) {
+    if(index < 0 || index >= this.size){
+      System.out.println("Remove SuperArrayIndexOutOfBoundsException: " + index);
+      return null;
+    }
+
     String word = this.get(index);
     for (int i = index; i <= size; i++) {
       this.data[i] = this.data[i+1];
     }
+
     this.size --;
     return word;
   }
 
+  // indexOf
   public int indexOf(String target) {
     for (int i = 0; i < size; i++) {
       if(data[i].equals(target)) {
@@ -68,6 +74,7 @@ public class SuperArray {
     return -1;
   }
 
+  // toString
   public String toString() {
     String ans = "[";
     for (int i = 0; i < size; i++) {
@@ -100,6 +107,7 @@ public class SuperArray {
     return ans += "]";
   }
 
+  // set and get
   public String get(int index) {
     if (index < 0 || index >= size) {
       System.out.println("\tGet SuperArrayIndexOutOfBoundsException: " + index + "\n\tSize was: " + size);
