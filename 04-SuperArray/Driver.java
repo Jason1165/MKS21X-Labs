@@ -33,5 +33,8 @@ public class Driver {
     System.out.println(SA.toStringDebug());
     SA.add(9, "not10");
     System.out.println(SA.toStringDebug());
+    System.out.println(SA.remove("not10"));
+    System.out.println(SA.toStringDebug());
+    System.out.println(SA.remove("not10"));
   }
 }
