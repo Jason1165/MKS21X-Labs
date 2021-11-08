@@ -36,8 +36,17 @@ public class SuperArray {
     return true;
   }
 
-  public void add(String word, int index) {
-
+  public void add(int index, String value) {
+    if(index < 0 || index > size) {
+      System.out.println("add: SuperArrayIndexOutOfBoundsException: " + index);
+    }
+    else {
+      for (int i = size+1; i < index; i--) {
+        data[i] = data[i-1];
+      }
+      data[index] = value;
+      this.size ++;
+    }
   }
 
   public String remove(int index) {
