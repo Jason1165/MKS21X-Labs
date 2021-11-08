@@ -27,6 +27,7 @@ public class SuperArray {
     this.data = dooble;
   }
 
+  // reminder to test for out of bounds
   public boolean add(String word) {
     if (size == data.length){
       resize();
@@ -47,6 +48,24 @@ public class SuperArray {
     }
     this.size --;
     return word;
+  }
+
+  public int indexOf(String target) {
+    for (int i = 0; i < size; i++) {
+      if(data[i].equals(target)) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public int lastIndexOf(String target) {
+    for (int i = size-1; i >= 0; i--) {
+      if(data[i].equals(target)) {
+        return i;
+      }
+    }
+    return -1;
   }
 
   public String toString() {
