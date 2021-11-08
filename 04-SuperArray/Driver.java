@@ -19,6 +19,16 @@ public class Driver {
     System.out.println(SA.remove(5));
     System.out.println(SA.remove(2));
     System.out.println(SA.toStringDebug());
-
+    SA.add(0, "test");
+    SA.add(-1, "false");
+    SA.add(10, "false");
+    SA.add(4, "false");
+    System.out.println(SA.toStringDebug());
+    SA.add("not6");
+    SA.add("not7");
+    SA.add("not8");
+    SA.add("not9");
+    SA.add(9, "not10");
+    System.out.println(SA.toStringDebug());
   }
 }
