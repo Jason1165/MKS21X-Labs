@@ -10,6 +10,9 @@ public class SuperArray {
   }
 
   public SuperArray(int initialCapacity) {
+    if (initialCapacity < 0) {
+      throw new IllegalArgumentException("Initial Capacity cannot be a negative number: " + initialCapacity);
+    }
     data = new String[initialCapacity];
     size = 0;
   }
@@ -38,7 +41,8 @@ public class SuperArray {
 
   public void add(int index, String value) {
     if(index < 0 || index > size) {
-      System.out.println("add: SuperArrayIndexOutOfBoundsException: " + index);
+      // System.out.println("add: SuperArrayIndexOutOfBoundsException: " + index);
+      throw new ArrayIndexOutOfBoundsException("Index Out Of Bounds Add: " + index);
     }
     else {
       if (size == data.length){
@@ -54,8 +58,9 @@ public class SuperArray {
 
   public String remove(int index) {
     if(index < 0 || index >= this.size){
-      System.out.println("Remove SuperArrayIndexOutOfBoundsException: " + index);
-      return null;
+      // System.out.println("Remove SuperArrayIndexOutOfBoundsException: " + index);
+      // return null;
+      throw new ArrayIndexOutOfBoundsException("Index Out Of Bounds Remove: " + index);
     }
     else {
       String word = this.get(index);
@@ -124,16 +129,18 @@ public class SuperArray {
   // set and get
   public String get(int index) {
     if (index < 0 || index >= size) {
-      System.out.println("\tGet SuperArrayIndexOutOfBoundsException: " + index + "\n\tSize was: " + size);
-      return null;
+      // System.out.println("\tGet SuperArrayIndexOutOfBoundsException: " + index + "\n\tSize was: " + size);
+      // return null;
+      throw new ArrayIndexOutOfBoundsException("Index Out Of Bounds Get: " + index);
     }
       return this.data[index];
   }
 
   public String set(int index, String element) {
     if (index < 0 || index >= size) {
-      System.out.println("\tSet SuperArrayIndexOutOfBoundsException: " + index + "\n\tSize was: " + size);
-      return null;
+      // System.out.println("\tSet SuperArrayIndexOutOfBoundsException: " + index + "\n\tSize was: " + size);
+      // return null;
+      throw new ArrayIndexOutOfBoundsException("Index Out Of Bounds Set: " + index);
     }
     String ori = this.data[index];
     this.data[index] = element;
