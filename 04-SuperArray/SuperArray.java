@@ -52,7 +52,7 @@ public class SuperArray {
         data[i] = data[i-1];
       }
       data[index] = value;
-      this.size ++;
+      size ++;
     }
   }
 
@@ -64,10 +64,15 @@ public class SuperArray {
     }
     else {
       String word = this.get(index);
-      for (int i = index; i <= size; i++) {
-        this.data[i] = this.data[i+1];
+      size --;
+      for (int i = index; i <= this.size(); i++) {
+        if (i == this.size) {
+          this.data[i] = null;
+        }
+        else {
+          this.data[i] = this.data[i+1];
+        }
       }
-      this.size --;
       return word;
     }
   }

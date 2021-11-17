@@ -96,7 +96,7 @@ public class SuperArrayExceptionTester{
     testName = "remove negative";
     list = init();
     try{
-        list.remove(-1);
+        list.remove(0);
         System.out.println(testNum+". FAIL! No exception thrown "+testName);
     }catch(ArrayIndexOutOfBoundsException e){
       System.out.println(testNum+". PASS "+testName);
