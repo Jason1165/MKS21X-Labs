@@ -51,7 +51,23 @@ public class ArrayListPractice {
     }
     System.out.println(A);
     System.out.println(B);
-    System.out.println(mixLists(A, B));
+    ArrayList<String>C = mixLists(A, B);
+    System.out.println(C);
+    for (int i = 0; i < C.size()-A.size(); i++) {
+      if (A.get(i) != C.get(2*i)) {
+        System.out.println("Errorrrr: " + i);
+      }
+    }
+
+    // System.out.println(C.size());
+    // System.out.println(B.size());
+
+    for (int i = 0; i < C.size()-A.size(); i++) {
+      if (B.get(i) != C.get(2*i + 1)) {
+        System.out.println("Errorrrr: " + i + "  " + B.get(i) + "  " +  C.get(i));
+        System.exit(1);
+      }
+    }
 
 
   }
