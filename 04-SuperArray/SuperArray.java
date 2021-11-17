@@ -64,15 +64,15 @@ public class SuperArray {
     }
     else {
       String word = this.get(index);
-      size --;
-      for (int i = index; i <= this.size(); i++) {
-        if (i == this.size) {
+      for (int i = index; i <= this.size()-1; i++) {
+        if (i == this.size-1) {
           this.data[i] = null;
         }
         else {
           this.data[i] = this.data[i+1];
         }
       }
+      size --;
       return word;
     }
   }
