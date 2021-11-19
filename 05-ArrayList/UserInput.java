@@ -31,13 +31,17 @@ public class UserInput {
     double min = 0;
     double mean = 0;
 
+    if (listOfDoubles.size() >= 1) {
+      min = listOfDoubles.get(0);
+      max = listOfDoubles.get(0); // not as important since 0 is lower bound
+    }
+
     for (int i = 0; i < listOfDoubles.size(); i++){
       mean += listOfDoubles.get(i);
       if (listOfDoubles.get(i) > max) {
         max = listOfDoubles.get(i);
       }
       if (listOfDoubles.get(i) < min) {
-        System.out.println("this works right");
         min = listOfDoubles.get(i);
       }
     }
