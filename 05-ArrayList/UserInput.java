@@ -27,7 +27,15 @@ public class UserInput {
       }
     }
 
-    System.out.println(listOfDoubles);
+    double max = listOfDoubles.get(listOfDoubles.size()-1);
+    double min = listOfDoubles.get(listOfDoubles.size()-1);
+    for (int i = 0; i < listOfDoubles.size(); i++){
+      
+    }
+
+    System.out.println("You entered: " + listOfDoubles);
+    System.out.println("Min value: " + min);
+    System.out.println("Max value: " + max);
 
   }
 }
