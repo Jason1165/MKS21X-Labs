@@ -27,13 +27,28 @@ public class UserInput {
       }
     }
 
-    double max = listOfDoubles.get(listOfDoubles.size()-1);
-    double min = listOfDoubles.get(listOfDoubles.size()-1);
+    double max = 0;
+    double min = 0;
+    double mean = 0;
+
     for (int i = 0; i < listOfDoubles.size(); i++){
-      
+      mean += listOfDoubles.get(i);
+      if (listOfDoubles.get(i) > max) {
+        max = listOfDoubles.get(i);
+      }
+      if (listOfDoubles.get(i) < min) {
+        System.out.println("this works right");
+        min = listOfDoubles.get(i);
+      }
+    }
+
+    mean = mean/listOfDoubles.size();
+    if (listOfDoubles.size() == 0) {
+      mean = 0;
     }
 
     System.out.println("You entered: " + listOfDoubles);
+    System.out.println("Mean: " + mean);
     System.out.println("Min value: " + min);
     System.out.println("Max value: " + max);
 
