@@ -17,8 +17,8 @@ public class Sorts{
   */
   public static void bubbleSort(int[] data){
     boolean inOrder = false;
-    while (!inOrder) {
-      for (int i = data.length; i > 0; i--) {
+    int i = data.length;
+    while (!inOrder && i >= 0) {
         inOrder = true;
         for (int k = 0; k < i-1; k++) {
           if (data[k] > data[k+1]) {
@@ -30,8 +30,8 @@ public class Sorts{
           }
           // System.out.println(Arrays.toString(data));
         }
+        i--;
         System.out.println(Arrays.toString(data));
-      }
     }
   }
 
