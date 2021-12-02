@@ -15,30 +15,30 @@ public class Sorts{
     // bubbleSort(test6);
 
     // Size Sort
-    // System.out.println("Starting size test with random");
-    // for (int i = 0; i <= 1000; i++) {
-    //   int[]aryTest = new int[i];
-    //   int[]ary = new int[i];
-    //   for (int j = 0; j < i; j++) {
-    //     int x = (int)(Math.random()*100)-50;
-    //     aryTest[j] = x;
-    //     ary[j] = x;
-    //   }
-    //   Arrays.sort(aryTest);
-    //   bubbleSort(ary);
-    //   if (!isEqual(ary, aryTest)) {
-    //     System.out.println(Arrays.toString(ary));
-    //     System.out.println(Arrays.toString(aryTest));
-    //     System.out.println("Error");
-    //     System.out.println("Size: " + i);
-    //     System.exit(1);
-    //   }
-    // }
-    // System.out.println("Size Test with random Completely");
+    System.out.println("Starting size test with random");
+    for (int i = 0; i <= 1000; i++) {
+      int[]aryTest = new int[i];
+      int[]ary = new int[i];
+      for (int j = 0; j < i; j++) {
+        int x = (int)(Math.random()*100)-50;
+        aryTest[j] = x;
+        ary[j] = x;
+      }
+      Arrays.sort(aryTest);
+      bubbleSort(ary);
+      if (!isEqual(ary, aryTest)) {
+        System.out.println(Arrays.toString(ary));
+        System.out.println(Arrays.toString(aryTest));
+        System.out.println("Error");
+        System.out.println("Size: " + i);
+        System.exit(1);
+      }
+    }
+    System.out.println("Size Test with random Completely");
 
     // reverse sort
     System.out.println("Starting testing of same value");
-    for (int i = 0; i <= 10; i++) {
+    for (int i = 0; i <= 1000; i++) {
       int[]aryTest = new int[i];
       int[]ary = new int[i];
       int x = (int)(Math.random()*100)-50;
@@ -57,6 +57,55 @@ public class Sorts{
       }
     }
     System.out.println("Size Test with random Completely");
+
+    // reverse sort
+    System.out.println("Starting testing of reverse value");
+    for (int i = 0; i <= 1000; i++) {
+      int[]aryTest = new int[i];
+      int[]ary = new int[i];
+      for (int j = 0; j < i; j++) {
+        int x = (int)(Math.random()*100)-50;
+        aryTest[j] = x;
+        ary[j] = x;
+      }
+      aryTest = reverse(aryTest);
+      ary = reverse(ary);
+      Arrays.sort(aryTest);
+      bubbleSort(ary);
+      if (!isEqual(ary, aryTest)) {
+        System.out.println(Arrays.toString(ary));
+        System.out.println(Arrays.toString(aryTest));
+        System.out.println("Error");
+        System.out.println("Size: " + i);
+        System.exit(1);
+      }
+    }
+    System.out.println("Reverse Test with random Completely");
+
+    // Increase sort
+    System.out.println("Starting testing of increasing value");
+    for (int i = 0; i <= 1000; i++) {
+      int[]aryTest = new int[i];
+      int[]ary = new int[i];
+      for (int j = 0; j < i; j++) {
+        int x = (int)(Math.random()*100)-50;
+        aryTest[j] = x;
+        ary[j] = x;
+      }
+
+      Arrays.sort(aryTest);
+      Arrays.sort(ary);
+      bubbleSort(ary);
+      if (!isEqual(ary, aryTest)) {
+        System.out.println(Arrays.toString(ary));
+        System.out.println(Arrays.toString(aryTest));
+        System.out.println("Error");
+        System.out.println("Size: " + i);
+        System.exit(1);
+      }
+    }
+    System.out.println("Increase Test with random Completely");
+
   }
 
   /**Bubble sort of an int array.
@@ -76,10 +125,10 @@ public class Sorts{
             data[k+1] = x;
             inOrder = false;
           }
-          System.out.println(Arrays.toString(data));
+          // System.out.println(Arrays.toString(data));
         }
         i--;
-        System.out.println(Arrays.toString(data));
+        // System.out.println(Arrays.toString(data));
     }
     // System.out.println(Arrays.toString(data));
   }
@@ -91,6 +140,15 @@ public class Sorts{
         return false;
       }
     }
-    return true;
+      return true;
+  }
+
+
+  public static int[] reverse(int[] ary) {
+    int[] ans = new int[ary.length];
+    for (int i = 0; i < ary.length; i++) {
+      ans[i] = ary[ary.length-i-1];
+    }
+    return ans;
   }
 }
