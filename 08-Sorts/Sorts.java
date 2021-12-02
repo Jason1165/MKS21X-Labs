@@ -15,11 +15,34 @@ public class Sorts{
     // bubbleSort(test6);
 
     // Size Sort
-    for (int i = 0; i <= 1000; i++) {
+    // System.out.println("Starting size test with random");
+    // for (int i = 0; i <= 1000; i++) {
+    //   int[]aryTest = new int[i];
+    //   int[]ary = new int[i];
+    //   for (int j = 0; j < i; j++) {
+    //     int x = (int)(Math.random()*100)-50;
+    //     aryTest[j] = x;
+    //     ary[j] = x;
+    //   }
+    //   Arrays.sort(aryTest);
+    //   bubbleSort(ary);
+    //   if (!isEqual(ary, aryTest)) {
+    //     System.out.println(Arrays.toString(ary));
+    //     System.out.println(Arrays.toString(aryTest));
+    //     System.out.println("Error");
+    //     System.out.println("Size: " + i);
+    //     System.exit(1);
+    //   }
+    // }
+    // System.out.println("Size Test with random Completely");
+
+    // reverse sort
+    System.out.println("Starting testing of same value");
+    for (int i = 0; i <= 10; i++) {
       int[]aryTest = new int[i];
       int[]ary = new int[i];
+      int x = (int)(Math.random()*100)-50;
       for (int j = 0; j < i; j++) {
-        int x = (int)(Math.random()*100)-50;
         aryTest[j] = x;
         ary[j] = x;
       }
@@ -33,7 +56,7 @@ public class Sorts{
         System.exit(1);
       }
     }
-    System.out.println("Size Test Completely");
+    System.out.println("Size Test with random Completely");
   }
 
   /**Bubble sort of an int array.
@@ -53,10 +76,10 @@ public class Sorts{
             data[k+1] = x;
             inOrder = false;
           }
-          // System.out.println(Arrays.toString(data));
+          System.out.println(Arrays.toString(data));
         }
         i--;
-        // System.out.println(Arrays.toString(data));
+        System.out.println(Arrays.toString(data));
     }
     // System.out.println(Arrays.toString(data));
   }
