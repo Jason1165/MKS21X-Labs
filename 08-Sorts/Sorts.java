@@ -18,12 +18,11 @@ public class Sorts{
     System.out.println("Starting size test with random");
     for (int i = 0; i <= 1000; i++) {
       int[]aryTest = new int[i];
-      int[]ary = new int[i];
       for (int j = 0; j < i; j++) {
         int x = (int)(Math.random()*100)-50;
         aryTest[j] = x;
-        ary[j] = x;
       }
+      int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
       Arrays.sort(aryTest);
       bubbleSort(ary);
       if (!isEqual(ary, aryTest)) {
@@ -40,12 +39,11 @@ public class Sorts{
     System.out.println("Starting testing of same value");
     for (int i = 0; i <= 1000; i++) {
       int[]aryTest = new int[i];
-      int[]ary = new int[i];
       int x = (int)(Math.random()*100)-50;
       for (int j = 0; j < i; j++) {
         aryTest[j] = x;
-        ary[j] = x;
       }
+      int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
       Arrays.sort(aryTest);
       bubbleSort(ary);
       if (!isEqual(ary, aryTest)) {
@@ -62,12 +60,11 @@ public class Sorts{
     System.out.println("Starting testing of reverse value");
     for (int i = 0; i <= 1000; i++) {
       int[]aryTest = new int[i];
-      int[]ary = new int[i];
       for (int j = 0; j < i; j++) {
         int x = (int)(Math.random()*100)-50;
         aryTest[j] = x;
-        ary[j] = x;
       }
+      int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
       aryTest = reverse(aryTest);
       ary = reverse(ary);
       Arrays.sort(aryTest);
@@ -86,13 +83,11 @@ public class Sorts{
     System.out.println("Starting testing of increasing value");
     for (int i = 0; i <= 1000; i++) {
       int[]aryTest = new int[i];
-      int[]ary = new int[i];
       for (int j = 0; j < i; j++) {
         int x = (int)(Math.random()*100)-50;
         aryTest[j] = x;
-        ary[j] = x;
       }
-
+      int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
       Arrays.sort(aryTest);
       Arrays.sort(ary);
       bubbleSort(ary);
