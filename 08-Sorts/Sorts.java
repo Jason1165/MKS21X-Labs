@@ -1,105 +1,130 @@
 import java.util.Arrays;
 public class Sorts{
   public static void main(String[] args) {
-    // int[] test1 = {5, 1 , 12, -5, 16};
-    // int[] test2 = {2, 3, 4, 5, 1};
-    // int[] test3 = {6, 1, 2, 3, 4, 5};
-    // int[] test4 = {0, 1, 2, -1, 1, 2};
-    // int[] test5 = {};
-    // int[] test6 = {1};
-    // bubbleSort(test1);
-    // bubbleSort(test2);
-    // bubbleSort(test3);
-    // bubbleSort(test4);
-    // bubbleSort(test5);
-    // bubbleSort(test6);
 
-    // Size Sort
-    System.out.println("Starting size test with random");
-    for (int i = 0; i <= 1000; i++) {
-      int[]aryTest = new int[i];
-      for (int j = 0; j < i; j++) {
+    int times = 10;
+    if (args[0].equals("0")) {
+      // Size Sort
+      for (int i = 0; i <= times; i++) {
+        int[]aryTest = new int[i];
+        for (int j = 0; j < i; j++) {
+          int x = (int)(Math.random()*100)-50;
+          aryTest[j] = x;
+        }
+        int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
+        Arrays.sort(aryTest);
+        bubbleSort(ary);
+        test(ary, aryTest, i);
+      }
+      System.out.println("BubbleSort: Random Complete");
+
+      // same sort
+      for (int i = 0; i <= times; i++) {
+        int[]aryTest = new int[i];
         int x = (int)(Math.random()*100)-50;
-        aryTest[j] = x;
+        for (int j = 0; j < i; j++) {
+          aryTest[j] = x;
+        }
+        int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
+        Arrays.sort(aryTest);
+        bubbleSort(ary);
+        test(ary, aryTest, i);
       }
-      int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
-      Arrays.sort(aryTest);
-      bubbleSort(ary);
-      if (!isEqual(ary, aryTest)) {
-        System.out.println(Arrays.toString(ary));
-        System.out.println(Arrays.toString(aryTest));
-        System.out.println("Error");
-        System.out.println("Size: " + i);
-        System.exit(1);
-      }
-    }
-    System.out.println("Size Test with random Completely");
+      System.out.println("BubbleSort: Same Complete");
 
-    // reverse sort
-    System.out.println("Starting testing of same value");
-    for (int i = 0; i <= 1000; i++) {
-      int[]aryTest = new int[i];
-      int x = (int)(Math.random()*100)-50;
-      for (int j = 0; j < i; j++) {
-        aryTest[j] = x;
+      // reverse sort
+      for (int i = 0; i <= times; i++) {
+        int[]aryTest = new int[i];
+        for (int j = 0; j < i; j++) {
+          int x = (int)(Math.random()*100)-50;
+          aryTest[j] = x;
+        }
+        int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
+        aryTest = reverse(aryTest);
+        ary = reverse(ary);
+        Arrays.sort(aryTest);
+        bubbleSort(ary);
+        test(ary, aryTest, i);
       }
-      int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
-      Arrays.sort(aryTest);
-      bubbleSort(ary);
-      if (!isEqual(ary, aryTest)) {
-        System.out.println(Arrays.toString(ary));
-        System.out.println(Arrays.toString(aryTest));
-        System.out.println("Error");
-        System.out.println("Size: " + i);
-        System.exit(1);
-      }
-    }
-    System.out.println("Size Test with random Completely");
+      System.out.println("BubbleSort: Reverse Complete");
 
-    // reverse sort
-    System.out.println("Starting testing of reverse value");
-    for (int i = 0; i <= 1000; i++) {
-      int[]aryTest = new int[i];
-      for (int j = 0; j < i; j++) {
+      // Increase sort
+      for (int i = 0; i <= times; i++) {
+        int[]aryTest = new int[i];
+        for (int j = 0; j < i; j++) {
+          int x = (int)(Math.random()*100)-50;
+          aryTest[j] = x;
+        }
+        int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
+        Arrays.sort(aryTest);
+        Arrays.sort(ary);
+        bubbleSort(ary);
+        test(ary, aryTest, i);
+      }
+      System.out.println("BubbleSort: Increase Complete");
+    }
+
+
+    if (args[0].equals("1")) {
+      // Size Sort
+      for (int i = 0; i <= times; i++) {
+        int[]aryTest = new int[i];
+        for (int j = 0; j < i; j++) {
+          int x = (int)(Math.random()*100)-50;
+          aryTest[j] = x;
+        }
+        int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
+        Arrays.sort(aryTest);
+        selectionSort(ary);
+        test(ary, aryTest, i);
+      }
+      System.out.println("selectionSort: Random Complete");
+
+      // same sort
+      for (int i = 0; i <= times; i++) {
+        int[]aryTest = new int[i];
         int x = (int)(Math.random()*100)-50;
-        aryTest[j] = x;
+        for (int j = 0; j < i; j++) {
+          aryTest[j] = x;
+        }
+        int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
+        Arrays.sort(aryTest);
+        selectionSort(ary);
+        test(ary, aryTest, i);
       }
-      int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
-      aryTest = reverse(aryTest);
-      ary = reverse(ary);
-      Arrays.sort(aryTest);
-      bubbleSort(ary);
-      if (!isEqual(ary, aryTest)) {
-        System.out.println(Arrays.toString(ary));
-        System.out.println(Arrays.toString(aryTest));
-        System.out.println("Error");
-        System.out.println("Size: " + i);
-        System.exit(1);
-      }
-    }
-    System.out.println("Reverse Test with random Completely");
+      System.out.println("selectionSort: Same Complete");
 
-    // Increase sort
-    System.out.println("Starting testing of increasing value");
-    for (int i = 0; i <= 1000; i++) {
-      int[]aryTest = new int[i];
-      for (int j = 0; j < i; j++) {
-        int x = (int)(Math.random()*100)-50;
-        aryTest[j] = x;
+      // reverse sort
+      for (int i = 0; i <= times; i++) {
+        int[]aryTest = new int[i];
+        for (int j = 0; j < i; j++) {
+          int x = (int)(Math.random()*100)-50;
+          aryTest[j] = x;
+        }
+        int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
+        aryTest = reverse(aryTest);
+        ary = reverse(ary);
+        Arrays.sort(aryTest);
+        selectionSort(ary);
+        test(ary, aryTest, i);
       }
-      int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
-      Arrays.sort(aryTest);
-      Arrays.sort(ary);
-      bubbleSort(ary);
-      if (!isEqual(ary, aryTest)) {
-        System.out.println(Arrays.toString(ary));
-        System.out.println(Arrays.toString(aryTest));
-        System.out.println("Error");
-        System.out.println("Size: " + i);
-        System.exit(1);
+      System.out.println("selectionSort: Reverse Complete");
+
+      // Increase sort
+      for (int i = 0; i <= times; i++) {
+        int[]aryTest = new int[i];
+        for (int j = 0; j < i; j++) {
+          int x = (int)(Math.random()*100)-50;
+          aryTest[j] = x;
+        }
+        int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
+        Arrays.sort(aryTest);
+        Arrays.sort(ary);
+        selectionSort(ary);
+        test(ary, aryTest, i);
       }
+      System.out.println("selectionSort: Increase Complete");
     }
-    System.out.println("Increase Test with random Completely");
 
   }
 
@@ -128,6 +153,24 @@ public class Sorts{
     // System.out.println(Arrays.toString(data));
   }
 
+  /**Selection sort
+  */
+  public static void selectionSort(int[] ary) {
+    for (int i = 0; i < ary.length; i++) {
+      int min = ary.length-1;
+      for (int j = i; j < ary.length; j++) {
+        if (ary[min] > ary[j]) {
+          min = j;
+        }
+      }
+      int x = ary[i];
+      int y = ary[min];
+      ary[i] = y;
+      ary[min] = x;
+    }
+    // System.out.println(Arrays.toString(ary));
+  }
+
 
   public static boolean isEqual(int[] ary1, int[] ary2) {
     for (int i = 0; i < ary1.length; i++) {
@@ -145,5 +188,15 @@ public class Sorts{
       ans[i] = ary[ary.length-i-1];
     }
     return ans;
+  }
+
+  public static void test(int[] ary, int[] aryTest, int i) {
+    if (!isEqual(ary, aryTest)) {
+      System.out.println(Arrays.toString(ary));
+      System.out.println(Arrays.toString(aryTest));
+      System.out.println("Error");
+      System.out.println("Size: " + i);
+      System.exit(1);
+    }
   }
 }
