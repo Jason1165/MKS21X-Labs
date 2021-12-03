@@ -2,7 +2,7 @@ import java.util.Arrays;
 public class Sorts{
   public static void main(String[] args) {
 
-    int times = 10;
+    int times = Integer.parseInt(args[1]);
     if (args[0].equals("0")) {
       // Size Sort
       for (int i = 0; i <= times; i++) {
