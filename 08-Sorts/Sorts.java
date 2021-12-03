@@ -125,7 +125,6 @@ public class Sorts{
       }
       System.out.println("selectionSort: Increase Complete");
     }
-
   }
 
   /**Bubble sort of an int array.
@@ -171,7 +170,6 @@ public class Sorts{
     // System.out.println(Arrays.toString(ary));
   }
 
-
   public static boolean isEqual(int[] ary1, int[] ary2) {
     for (int i = 0; i < ary1.length; i++) {
       if (ary1[i] != ary2[i]) {
@@ -180,7 +178,6 @@ public class Sorts{
     }
       return true;
   }
-
 
   public static int[] reverse(int[] ary) {
     int[] ans = new int[ary.length];
