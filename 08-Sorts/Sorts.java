@@ -110,10 +110,57 @@ public class Sorts{
       System.out.println("selectionSort: Increase Complete");
     }
 
-    else {
-      int[] ary = {1, 2, 3, 1};
-      insertionSort(ary);
-      System.out.println(Arrays.toString(ary));
+    if (args[0].equals("insertion")) {
+      // Size Sort
+      int[]aryTest = new int[times];
+      for (int i = 0; i < times; i++) {
+          int x = (int)(Math.random()*100)-50;
+          aryTest[i] = x;
+        }
+        int[]ary = Arrays.copyOfRange(aryTest, 0, aryTest.length);
+        Arrays.sort(aryTest);
+        insertionSort(ary);
+        test(ary, aryTest);
+      System.out.println("insertionSort: Random Complete");
+
+      // same sort
+      int[]aryTest1 = new int[times];
+      int x = (int)(Math.random()*100)-50;
+      for (int i = 0; i < times; i++) {
+          aryTest1[i] = x;
+        }
+        int[]ary1 = Arrays.copyOfRange(aryTest1, 0, aryTest1.length);
+        Arrays.sort(aryTest1);
+        insertionSort(ary1);
+        test(ary1, aryTest1);
+      System.out.println("insertionSort: Same Complete");
+
+      // reverse sort
+      int[]aryTest2 = new int[times];
+      for (int i = 0; i < times; i++) {
+          int y = (int)(Math.random()*100)-50;
+          aryTest2[i] = y;
+        }
+        int[]ary2 = Arrays.copyOfRange(aryTest2, 0, aryTest2.length);
+        aryTest2 = reverse(aryTest2);
+        ary2 = reverse(ary2);
+        Arrays.sort(aryTest2);
+        insertionSort(ary2);
+        test(ary2, aryTest2);
+      System.out.println("insertionSort: Reverse Complete");
+
+      // Increase sort
+      int[]aryTest3 = new int[times];
+      for (int i = 0; i < times; i++) {
+          int y = (int)(Math.random()*100)-50;
+          aryTest[i] = y;
+        }
+        int[]ary3 = Arrays.copyOfRange(aryTest3, 0, aryTest3.length);
+        Arrays.sort(aryTest3);
+        Arrays.sort(ary3);
+        insertionSort(ary3);
+        test(ary3, aryTest3);
+      System.out.println("insertionSort: Increase Complete");
     }
   }
 
@@ -121,6 +168,7 @@ public class Sorts{
   *Upon completion, the elements of the array will be in increasing order.
   *@param data  the elements to be sorted.
   */
+
   public static void bubbleSort(int[] data){
     boolean inOrder = false;
     int i = data.length;
@@ -163,14 +211,16 @@ public class Sorts{
   public static void insertionSort(int[] data) {
     for (int i = 1; i < data.length; i++ ) {
       if (data[i] < data[i-1]) {
-        System.out.println();
+        // System.out.println("\t" + Arrays.toString(data));
         int x = data[i];
         int j = i-1;
-        while(data[j] > x && j >= 0 ) {
+        while(j >= 0 && data[j] > x) {
           data[j+1] = data[j];
           j--;
+          // System.out.println(Arrays.toString(data));
         }
-        data[j]= x;
+        data[j+1]= x;
+        // System.out.println("\t\t"+Arrays.toString(data));
       }
     }
   }
