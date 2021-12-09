@@ -151,7 +151,11 @@ public class WordSearch{
     public boolean addWord(int row, int col, String word, int rowInc, int colInc) {
       int r = row;
       int c = col;
+      // pre-condition technically not needed
       if (rowInc > 1 || rowInc < -1 || colInc > 1 || colInc < -1) {
+        return false;
+      }
+      if (row >= data.length || row < 0 || col >= data[row].length || col < 0) {
         return false;
       }
       if (rowInc == 0 && colInc == 0) {
@@ -160,6 +164,13 @@ public class WordSearch{
       if ((rowInc == 0 && row >= data.length) || (colInc == 0 && col >= data[row].length)) {
         return false;
       }
+      if (rowInc != 0 && (row + word.length()*rowInc > data.length || row + word.length()*rowInc < -1)) {
+        return false;
+      }
+      if (colInc != 0 && (col + word.length()*colInc > data[row].length || col + word.length()*colInc < -1)) {
+        return false;
+      }
+
       for (int i = 0; i < word.length(); i++) {
         if (data[r][c] != '_' && word.charAt(i) != data[r][c]) {
           return false;
@@ -167,6 +178,7 @@ public class WordSearch{
         r += rowInc;
         c += colInc;
       }
+
       // adding word
       r = row;
       c = col;
