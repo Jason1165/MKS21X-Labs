@@ -16,6 +16,7 @@ public class Tester {
     model.addWord(1, 4, "END", 1, 0);
     model.addWord(0, 0, "impossible", 0, 0);
     model.addWord(0, 0, "CAB", 1, 1);
+    model.addWord(0, 0, "CATS", 0, 10);
     System.out.println(model.toString());
   }
 }

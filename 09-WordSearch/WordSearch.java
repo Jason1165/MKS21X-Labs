@@ -151,7 +151,13 @@ public class WordSearch{
     public boolean addWord(int row, int col, String word, int rowInc, int colInc) {
       int r = row;
       int c = col;
+      if (rowInc > 1 || rowInc < -1 || colInc > 1 || colInc < -1) {
+        return false;
+      }
       if (rowInc == 0 && colInc == 0) {
+        return false;
+      }
+      if ((rowInc == 0 && row >= data.length) || (colInc == 0 && col >= data[row].length)) {
         return false;
       }
       for (int i = 0; i < word.length(); i++) {
