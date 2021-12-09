@@ -151,6 +151,19 @@ public class WordSearch{
     public boolean addWord(int row, int col, String word, int rowInc, int colInc) {
       int r = row;
       int c = col;
+      if (rowInc == 0 && colInc == 0) {
+        return false;
+      }
+      for (int i = 0; i < word.length(); i++) {
+        if (data[r][c] != '_' && word.charAt(i) != data[r][c]) {
+          return false;
+        }
+        r += rowInc;
+        c += colInc;
+      }
+      // adding word
+      r = row;
+      c = col;
       for (int i = 0; i < word.length(); i++) {
         data[r][c] = word.charAt(i);
         r += rowInc;
