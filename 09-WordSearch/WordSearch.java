@@ -136,4 +136,18 @@ public class WordSearch{
       }
       return true;
     }
+
+    /**Attempts to add a given word to the specified position of the WordGrid.
+    *@param word is any text to be added to the word grid.
+    *@param row is the vertical locaiton of where you want the word to start.
+    *@param col is the horizontal location of where you want the word to start.
+    *@param rowInc is the direction at which the word is added horizontally,
+    *1 would add to the right, and -1 is to the left.
+    *@param colInc is the direction at which the word is added vertically,
+    *1 would add downwards, and -1 upwards.
+    *@return true when the word is added successfully. When the word doesn't fit,
+    *or there are overlapping letters that do not match, then false is returned
+    *and the board is not modified.
+    */
+    
 }
