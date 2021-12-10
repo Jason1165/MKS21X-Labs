@@ -21,6 +21,7 @@ public class WordSearch{
       Random rng = new Random();
       seed = rng.nextInt();
       randgen = new Random(seed);
+      addAllWords(fileName);
     }
 
     public WordSearch(int rows, int cols, String fileName, int seed) {
@@ -28,6 +29,7 @@ public class WordSearch{
       this.clear();
       this.seed = seed;
       randgen = new Random(seed);
+      addAllWords(fileName);
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
@@ -58,9 +60,15 @@ public class WordSearch{
     }
 
     private void addAllWords(String filename) {
+      ArrayList<String> wordsToBeAdded = new ArrayList<String>();
       try {
         File file = new File(filename);
         Scanner in = new Scanner(file);
+        while (in.hasNextLine()) {
+          String x = in.nextLine();
+          wordsToBeAdded.add(x.toUpperCase());
+        }
+        System.out.println(wordsToBeAdded.toString());
 
       } catch (FileNotFoundException ex) {
         ex.printStackTrace();
