@@ -78,7 +78,13 @@ public class WordSearch{
           wordsToBeAdded.add(x.toUpperCase());
         }
         int iter = 0;
+        if (data.length == 0 || data[0].length == 0) {
+          iter = 1000;
+        }
         while (wordsToBeAdded.size() > 0) {
+          if (iter >= 1000) {
+            break;
+          }
           iCol = randgen.nextInt(3)-1;
           iRow = randgen.nextInt(3)-1;
           r = randgen.nextInt(data.length);
