@@ -69,6 +69,7 @@ public class WordSearch{
 
     private void addAllWords(String filename) {
       int iCol, iRow, r, c, word;
+      int max = 10000;
       ArrayList<String> wordsToBeAdded = new ArrayList<String>();
       try {
         File file = new File(filename);
@@ -79,10 +80,10 @@ public class WordSearch{
         }
         int iter = 0;
         if (data.length == 0 || data[0].length == 0) {
-          iter = 1000;
+          iter = max;
         }
         while (wordsToBeAdded.size() > 0) {
-          if (iter >= 1000) {
+          if (iter >= max) {
             break;
           }
           iCol = randgen.nextInt(3)-1;
@@ -99,11 +100,11 @@ public class WordSearch{
             c = randgen.nextInt(data[0].length);
             success = addWord(wordsToBeAdded.get(word), r, c, iRow, iCol);
             iter++;
-            if (iter >= 1000) {
+            if (iter >= max) {
               break;
             }
           }
-          if (iter >= 1000) {
+          if (iter >= max) {
             break;
           }
           // System.out.println(wordsToBeAdded.get(word) + "\t" + word);
