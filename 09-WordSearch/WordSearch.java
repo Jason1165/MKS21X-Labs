@@ -56,6 +56,14 @@ public class WordSearch{
         }
         ans += "\n";
       }
+      ans += "Words: ";
+      for (int i = 0; i < wordsAdded.size(); i++) {
+        ans += "" + wordsAdded.get(i);
+        if (wordsAdded.size()-1 != i) {
+          ans += ", ";
+        }
+      }
+      ans += "\nseed: " + seed;
       return ans;
     }
 
