@@ -1,16 +1,33 @@
 /*Lab9: Word Search generator
 */
+import java.util.Random;
+import java.util.ArrayList;
+import java.io.*;
+
 public class WordSearch{
     private char[][]data;
+    private int seed;
+    private Random randgen;
+    private ArrayList<String> wordsAdded;
 
     /**Initialize the grid to the size specified
      *and fill all of the positions with '_'
      *@param rows is the starting height of the WordSearch
      *@param cols is the starting width of the WordSearch
      */
-    public WordSearch(int rows,int cols){
+    public WordSearch(int rows,int cols, String fileName){
       data = new char[rows][cols];
       this.clear();
+      Random rng = new Random();
+      seed = rng.nextInt();
+      randgen = new Random(seed);
+    }
+
+    public WordSearch(int rows, int cols, String fileName, int seed) {
+      data = new char[rows][cols];
+      this.clear();
+      this.seed = seed;
+      randgen = new Random(seed);
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
@@ -40,6 +57,9 @@ public class WordSearch{
       return ans;
     }
 
+    public boolean addAllWords(String filename) {
+
+    }
 
     /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from left to right, must fit on the WordGrid, and must
@@ -148,35 +168,25 @@ public class WordSearch{
     *or there are overlapping letters that do not match, then false is returned
     *and the board is not modified.
     */
-    public boolean addWord(int row, int col, String word, int rowInc, int colInc) {
+    public boolean addWord(String word, int row, int col, int rowInc, int colInc) {
       int r = row;
       int c = col;
-      // pre-condition technically not needed
-      if (rowInc > 1 || rowInc < -1 || colInc > 1 || colInc < -1) {
-        return false;
-      }
-      if (row >= data.length || row < 0 || col >= data[row].length || col < 0) {
-        return false;
-      }
       if (rowInc == 0 && colInc == 0) {
         return false;
       }
-      if ((rowInc == 0 && row >= data.length) || (colInc == 0 && col >= data[row].length)) {
+      if (rowInc > 1 || rowInc < -1 || colInc > 1 || colInc < -1) {
         return false;
       }
-      if (rowInc != 0 && (row + word.length()*rowInc > data.length || row + word.length()*rowInc < -1)) {
-        return false;
-      }
-      if (colInc != 0 && (col + word.length()*colInc > data[row].length || col + word.length()*colInc < -1)) {
-        return false;
-      }
-
-      for (int i = 0; i < word.length(); i++) {
-        if (data[r][c] != '_' && word.charAt(i) != data[r][c]) {
-          return false;
+      try {
+        for (int i = 0; i < word.length(); i++) {
+          if (data[r][c] != '_' && word.charAt(i) != data[r][c]) {
+            return false;
+          }
+          r += rowInc;
+          c += colInc;
         }
-        r += rowInc;
-        c += colInc;
+      } catch (ArrayIndexOutOfBoundsException ex) {
+        return false;
       }
 
       // adding word
