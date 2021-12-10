@@ -70,12 +70,13 @@ public class WordSearch{
           wordsToBeAdded.add(x.toUpperCase());
         }
         int iter = 0;
-        while (wordsToBeAdded.size() != 0 || iter  <= 10000) {
+        while (wordsToBeAdded.size() > 0) {
           iCol = randgen.nextInt(3)-1;
           iRow = randgen.nextInt(3)-1;
           r = randgen.nextInt(data.length);
           c = randgen.nextInt(data[0].length);
           word = randgen.nextInt(wordsToBeAdded.size());
+          // System.out.println("iCol:" + iCol + " iRow: " + iRow + " word:" + word + " r:" + r + " c:" + c);
           boolean success = addWord(wordsToBeAdded.get(word), r, c, iRow, iCol);
           while (!success) {
             iCol = randgen.nextInt(3)-1;
@@ -88,7 +89,10 @@ public class WordSearch{
               break;
             }
           }
-          System.out.println(wordsToBeAdded.get(word) + "\t" + word);
+          if (iter >= 1000) {
+            break;
+          }
+          // System.out.println(wordsToBeAdded.get(word) + "\t" + word);
           wordsAdded.add(wordsToBeAdded.get(word));
           wordsToBeAdded.remove(word);
         }
