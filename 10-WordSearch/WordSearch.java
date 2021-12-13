@@ -19,7 +19,7 @@ public class WordSearch{
       data = new char[rows][cols];
       Random rng = new Random();
       seed = rng.nextInt();
-      wordsAdded = new ArrayList<String>()
+      wordsAdded = new ArrayList<String>();
       randgen = new Random(seed);
       this.clear();
       addAllWords(fileName);
@@ -29,7 +29,7 @@ public class WordSearch{
       data = new char[rows][cols];
       this.clear();
       this.seed = seed;
-      wordsAdded = new ArrayList<String>()
+      wordsAdded = new ArrayList<String>();
       randgen = new Random(seed);
       addAllWords(fileName);
     }
