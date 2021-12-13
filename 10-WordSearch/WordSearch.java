@@ -67,6 +67,16 @@ public class WordSearch{
       return ans;
     }
 
+    public void fillInRandomLetters() {
+      for (int i = 0; i < data.length; i++) {
+        for (int j = 0; j < data[i].length; j++) {
+          if (data[i][j] == '_'){
+            data[i][j] = (char)(65 + randgen.nextInt(26));
+          }
+        }
+      }
+    }
+
     private void addAllWords(String filename) {
       int iCol, iRow, r, c, word;
       int max = 10000;
@@ -77,7 +87,9 @@ public class WordSearch{
         Scanner in = new Scanner(file);
         while (in.hasNextLine()) {
           String x = in.nextLine();
-          wordsToBeAdded.add(x.toUpperCase());
+          if (! x.equals("")) {
+            wordsToBeAdded.add(x.toUpperCase());
+          }
         }
       } catch (FileNotFoundException ex) {
         ex.printStackTrace();
