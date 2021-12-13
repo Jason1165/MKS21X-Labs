@@ -8,7 +8,7 @@ public class WordSearch{
     private char[][]data;
     private int seed;
     private Random randgen;
-    private ArrayList<String> wordsAdded = new ArrayList<String>();
+    private ArrayList<String> wordsAdded;
 
     /**Initialize the grid to the size specified
      *and fill all of the positions with '_'
@@ -19,6 +19,7 @@ public class WordSearch{
       data = new char[rows][cols];
       Random rng = new Random();
       seed = rng.nextInt();
+      wordsAdded = new ArrayList<String>()
       randgen = new Random(seed);
       this.clear();
       addAllWords(fileName);
@@ -28,6 +29,7 @@ public class WordSearch{
       data = new char[rows][cols];
       this.clear();
       this.seed = seed;
+      wordsAdded = new ArrayList<String>()
       randgen = new Random(seed);
       addAllWords(fileName);
     }
@@ -265,5 +267,28 @@ public class WordSearch{
    //    return true;
    //  }
 
+   public static void main(String[] args) {
+     if (args.length == 4) {
+       WordSearch search = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2]);
+       if (args[3].equals("0")) {
+         search.fillInRandomLetters();
+         System.out.println(search.toString());
+       }
+       else {
+         System.out.println(search.toString());
+       }
+     }
+
+     else if (args.length == 5) {
+       WordSearch search = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], Integer.parseInt(args[4]));
+       if (args[3].equals("0")) {
+         search.fillInRandomLetters();
+         System.out.println(search.toString());
+       }
+       else {
+         System.out.println(search.toString());
+       }
+     }
+   }
 
 }
