@@ -81,7 +81,7 @@ public class WordSearch{
 
     private void addAllWords(String filename) {
       int iCol, iRow, r, c, word;
-      int max = 10000;
+      int max = 100000;
       ArrayList<String> wordsToBeAdded = new ArrayList<String>();
 
       try {
@@ -273,6 +273,9 @@ public class WordSearch{
      String f = args[2];
      int mode = Integer.parseInt(args[3]);
      WordSearch search;
+     if (r <= 0 || c <= 0) {
+       System.exit(1);
+     }
      if (args.length == 4) {
        search = new WordSearch(r, c, f);
        if (mode == 0) {
@@ -283,7 +286,7 @@ public class WordSearch{
          System.out.println(search.toString());
        }
      }
-     
+
      else if (args.length == 5) {
        int seed = Integer.parseInt(args[4]);
        search = new WordSearch(r, c, f, seed);
