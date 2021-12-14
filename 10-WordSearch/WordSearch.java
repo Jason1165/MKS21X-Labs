@@ -268,24 +268,30 @@ public class WordSearch{
    //  }
 
    public static void main(String[] args) {
+     int r = Integer.parseInt(args[0]);
+     int c = Integer.parseInt(args[1]);
+     String f = args[2];
+     int mode = Integer.parseInt(args[3]);
+     WordSearch search;
      if (args.length == 4) {
-       WordSearch search = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2]);
-       if (args[3].equals("0")) {
+       search = new WordSearch(r, c, f);
+       if (mode == 0) {
          search.fillInRandomLetters();
          System.out.println(search.toString());
        }
-       else {
+       if (mode == 1) {
          System.out.println(search.toString());
        }
      }
-
+     
      else if (args.length == 5) {
-       WordSearch search = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], Integer.parseInt(args[4]));
-       if (args[3].equals("0")) {
+       int seed = Integer.parseInt(args[4]);
+       search = new WordSearch(r, c, f, seed);
+       if (mode == 0) {
          search.fillInRandomLetters();
          System.out.println(search.toString());
        }
-       else {
+       if (mode == 1) {
          System.out.println(search.toString());
        }
      }
