@@ -82,6 +82,7 @@ public class WordSearch{
     private void addAllWords(String filename) {
       int iCol, iRow, r, c, word;
       int max = 100000;
+      String w;
       ArrayList<String> wordsToBeAdded = new ArrayList<String>();
 
       try {
@@ -98,30 +99,23 @@ public class WordSearch{
       }
 
       int iter = 0;
-      if (data.length == 0 || data[0].length == 0) {
-        iter = max;
-      }
       while (wordsToBeAdded.size() > 0) {
-        if (iter >= max) {
-          break;
-        }
         iCol = randgen.nextInt(3)-1;
         iRow = randgen.nextInt(3)-1;
         r = randgen.nextInt(data.length);
         c = randgen.nextInt(data[0].length);
         word = randgen.nextInt(wordsToBeAdded.size());
-        // System.out.println("iCol:" + iCol + " iRow: " + iRow + " word:" + word + " r:" + r + " c:" + c);
-        boolean success = addWord(wordsToBeAdded.get(word), r, c, iRow, iCol);
-        if (iter >= max) {
-          break;
-        }
-        if (success) {
-          wordsAdded.add(wordsToBeAdded.get(word));
-          wordsToBeAdded.remove(word);
-        }
-        else {
+        w = wordsToBeAdded.remove(word);
+        // System.out.println("Initial: iCol:" + iCol + " iRow: " + iRow + " word:" + w + " r:" + r + " c:" + c);
+        while (!addWord(w, r, c, iRow, iCol) && iter < max ) {
+          // System.out.println("iCol:" + iCol + " iRow: " + iRow + " word:" + w + " r:" + r + " c:" + c);
           iter++;
+          iCol = randgen.nextInt(3)-1;
+          iRow = randgen.nextInt(3)-1;
+          r = randgen.nextInt(data.length);
+          c = randgen.nextInt(data[0].length);
         }
+        iter = 0;
         // System.out.println(wordsToBeAdded.get(word) + "\t" + word);
       }
     }
@@ -169,6 +163,7 @@ public class WordSearch{
          r += rowInc;
          c += colInc;
        }
+       wordsAdded.add(word);
        return true;
      }
 
