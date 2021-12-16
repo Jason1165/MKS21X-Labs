@@ -1,17 +1,69 @@
-import java.util.*;
+import java.util.ArrayList;
+
 public class Tester {
+  public static boolean DEBUG = false;
+
+
   public static void main(String[] args) {
-    ArrayList<String> test = new ArrayList<String>();
-    test.add(null);
-    System.out.println(test.toString());
+    String TEST;
+    NoNullArrayList<String> words;
+    NoNullArrayList<Integer> numbers;
+    NoNullArrayList<Boolean> bool;
+
+    TEST = "Adding String Object";
+    words = new NoNullArrayList<String>();
     try {
-      NoNullArrayList<String> name = new NoNullArrayList<String>();
-      name.add("hello");
-      name.add(null);
-      System.out.println(name.toString());
-      System.out.println("Test 1 Passed");
+      for (int i = 0; i < 500000; i++) {
+        int x = (int)(Math.random()*10);
+        if (x == 2) {
+          words.add(null);
+        }
+        else {
+          words.add("" + x);
+        }
+      }
     } catch (IllegalArgumentException e) {
-      System.out.println("passed");
+      System.out.println(TEST + " PASS");
+      if(DEBUG)System.out.println(words.toString());
     }
+
+    TEST = "Adding with index String Object";
+    words = new NoNullArrayList<String>();
+    try {
+      for (int i = 0; i < 500000; i++) {
+        int x = (int)(Math.random()*10);
+        if (x == 2) {
+          words.add(0, null);
+        }
+        else {
+          words.add(0, "" + x);
+        }
+      }
+    } catch (IllegalArgumentException e) {
+      System.out.println(TEST + " PASS");
+      if(DEBUG)System.out.println(words.toString());
+    }
+
+    TEST = "Setting String Object";
+    words = new NoNullArrayList<String>(10);
+    words.add("first");
+    try {
+      for (int i = 0; i < 500000; i++) {
+        int x = (int)(Math.random()*10);
+        int y = (int)(Math.random()*words.size());
+        if (x == 2) {
+          words.set(0, null);
+        }
+        else {
+          words.set(0, "" + x);
+        }
+      }
+    } catch (IllegalArgumentException e) {
+      System.out.println(TEST + " PASS");
+      if(DEBUG)System.out.println(words.toString());
+    }
+
+
   }
+
 }
