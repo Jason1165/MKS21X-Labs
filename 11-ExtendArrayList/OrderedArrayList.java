@@ -15,8 +15,10 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   public T set (int index, T element) {
+    T temp = this.remove(index);
     index = this.whereToPlace(element);
-    return super.set(index, element);
+    super.add(index, element);
+    return temp;
   }
 
   public boolean add(T element) {
