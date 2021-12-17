@@ -9,6 +9,21 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     super(startingCapacity);
   }
 
+  public void add(int index, T element) {
+    index = this.whereToPlace(element);
+    super.add(index, element);
+  }
+
+  public T set (int index, T element) {
+    index = this.whereToPlace(element);
+    return super.set(index, element);
+  }
+
+  public boolean add(T element) {
+    add(0, element);
+    return true;
+  }
+
   private int whereToPlace(T value){
     /*return the index that the value should be placed
     when inserting into the OrderedArrayList .*/
