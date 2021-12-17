@@ -37,11 +37,11 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
       for (int i = 0; i < this.size(); i++) {
         if (value.compareTo(this.get(i)) > 0) {
           // System.out.println(i);
-          loc = i;
+          loc = i+1;
         }
       }
     }
-    return loc+1;
+    return loc;
   }
 
 }
