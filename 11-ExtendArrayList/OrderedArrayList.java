@@ -30,8 +30,8 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     /*return the index that the value should be placed
     when inserting into the OrderedArrayList .*/
     int loc = 0;
-    if (this.size() == 0) {
-      loc = 0;
+    if (this.size() == 0 || value == null) {
+      return loc;
     }
     else {
       for (int i = 0; i < this.size(); i++) {
