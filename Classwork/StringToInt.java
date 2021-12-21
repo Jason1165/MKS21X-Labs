@@ -9,7 +9,11 @@ public class StringToInt {
     int l = s.length()-1;
     for (int i = s.length()-1; i >= 0; i--) {
       int val = valueOfDigit(s.charAt(i));
-      ans += val*(Math.pow(10, l-i));
+      if (val == -1) {
+        ans = ans * val;
+      } else {
+        ans += val*(Math.pow(10, l-i));  
+      }
       // System.out.println(val);
     }
     return ans;
