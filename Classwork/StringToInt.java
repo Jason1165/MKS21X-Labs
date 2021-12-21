@@ -9,8 +9,8 @@ public class StringToInt {
     int l = s.length()+1;
     for (int i = s.length()-1; i >= 0; i--) {
       int val = valueOfDigit(s.charAt(i));
-      ans += val*(10*(l-i));
-      System.out.println(val);
+      ans += val*(Math.pow(10, i));
+      // System.out.println(val);
     }
     return ans;
   }
