@@ -6,10 +6,10 @@ public class StringToInt {
 
   public static int stringToInt(String s) {
     int ans = 0;
-    int l = s.length()+1;
+    int l = s.length()-1;
     for (int i = s.length()-1; i >= 0; i--) {
       int val = valueOfDigit(s.charAt(i));
-      ans += val*(Math.pow(10, i));
+      ans += val*(Math.pow(10, l-i));
       // System.out.println(val);
     }
     return ans;
