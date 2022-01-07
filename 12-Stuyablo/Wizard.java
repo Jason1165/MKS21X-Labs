@@ -31,8 +31,14 @@ public class Wizard extends Adventurer {
       attack(other);
     }
     else if (getMana() >= 5) {
-      int damage = (int)(Math.random()*5) + getAge()/51;
+      int damage = (int)(Math.random()*10) + getAge()/51;
       other.applyDamage(damage);
+      System.out.println(this + " summoned " + getAge()/51 + " fireballs upon " + other + " for " + damage + " damage!" );
+      setMana(getMana() - 5);
+    }
+    else {
+      System.out.println("Not enough mana!");
+      attack(other);
     }
   }
 
