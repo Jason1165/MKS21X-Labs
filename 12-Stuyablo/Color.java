@@ -7,18 +7,28 @@ public class Color {
     Text.clear();
     Text.go(1,1);
     for (int i = 0; i < 80; i++) {
-      System.out.print(Text.colorize(" ", Text.RED + Text.BACKGROUND));
+      CMYK(i);
     }
     Text.go(30,1);
     for (int i = 0; i < 80; i++) {
-      System.out.print(Text.colorize(" ", Text.RED + Text.BACKGROUND));
+      CMYK(i);
     }
-    for (int i = 1; i < 31; i++) {
+    for (int i = 0; i < 30; i++) {
       Text.go(i, 1);
-      System.out.print(Text.colorize(" ", Text.RED + Text.BACKGROUND));
+      CMYK(i-1);
       Text.go(i, 80);
-      System.out.print(Text.colorize(" ", Text.RED + Text.BACKGROUND));
+      CMYK(i-1);
     }
+
+    Text.go(1, 1);
+    System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
+    Text.go(y, 1);
+    System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
+    Text.go(y, x);
+    System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
+    Text.go(1, x);
+    System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
+
 
     int[] nums = new int[4];
     for (int i = 0; i < nums.length; i++) {
@@ -26,7 +36,7 @@ public class Color {
     }
 
     for (int i = 0; i < nums.length; i++) {
-      Text.go(2, (i*x)/4 + 2);
+      Text.go(2, (i*x)/4 + 4);
       int colour = Text.WHITE;
       if (nums[i] < 25) {
         colour = Text.RED;
@@ -38,5 +48,12 @@ public class Color {
     }
     Text.showCursor();
     Text.go(31, 1);
+  }
+
+  public static void CMYK (int i) {
+    if (i%4 == 0) System.out.print(Text.colorize(" ", Text.CYAN + Text.BACKGROUND));
+    if (i%4 == 1) System.out.print(Text.colorize(" ", Text.MAGENTA + Text.BACKGROUND));
+    if (i%4 == 2) System.out.print(Text.colorize(" ", Text.YELLOW + Text.BACKGROUND));
+    if (i%4 == 3) System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
   }
 }
