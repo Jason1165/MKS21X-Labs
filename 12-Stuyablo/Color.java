@@ -1,4 +1,6 @@
 public class Color {
+  public static final int x = 80;
+  public static final int y = 30;
   public static void main(String[] args) {
     Text.hideCursor();
     Text.clear();
