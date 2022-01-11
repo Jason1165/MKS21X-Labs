@@ -24,6 +24,18 @@ public class Color {
     for (int i = 0; i < nums.length; i++) {
       nums[i] = (int)(Math.random()*99);
     }
+
+    for (int i = 0; i < nums.length; i++) {
+      Text.go(2, (i*x)/4 + 2);
+      int colour = Text.WHITE;
+      if (nums[i] < 25) {
+        colour = Text.RED;
+      }
+      if (nums[i] > 75) {
+        colour = Text.GREEN;
+      }
+      System.out.print(Text.colorize(""+nums[i], colour));
+    }
     Text.showCursor();
     Text.go(31, 1);
   }
