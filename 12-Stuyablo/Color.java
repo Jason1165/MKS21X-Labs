@@ -7,27 +7,40 @@ public class Color {
     Text.clear();
     Text.go(1,1);
     for (int i = 0; i < 80; i++) {
-      CMYK(i);
+      System.out.print(Text.colorize(" ", Text.RED + Text.BACKGROUND));
     }
     Text.go(30,1);
     for (int i = 0; i < 80; i++) {
-      CMYK(i);
+      System.out.print(Text.colorize(" ", Text.RED + Text.BACKGROUND));
     }
-    for (int i = 0; i < 30; i++) {
+    for (int i = 1; i < 31; i++) {
       Text.go(i, 1);
-      CMYK(i-1);
+      System.out.print(Text.colorize(" ", Text.RED + Text.BACKGROUND));
       Text.go(i, 80);
-      CMYK(i-1);
+      System.out.print(Text.colorize(" ", Text.RED + Text.BACKGROUND));
     }
-
-    Text.go(1, 1);
-    System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
-    Text.go(y, 1);
-    System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
-    Text.go(y, x);
-    System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
-    Text.go(1, x);
-    System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
+    // for (int i = 0; i < 80; i++) {
+    //   CMYK(i);
+    // }
+    // Text.go(30,1);
+    // for (int i = 0; i < 80; i++) {
+    //   CMYK(i);
+    // }
+    // for (int i = 0; i < 30; i++) {
+    //   Text.go(i, 1);
+    //   CMYK(i-1);
+    //   Text.go(i, 80);
+    //   CMYK(i-1);
+    // }
+    //
+    // Text.go(1, 1);
+    // System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
+    // Text.go(y, 1);
+    // System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
+    // Text.go(y, x);
+    // System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
+    // Text.go(1, x);
+    // System.out.print(Text.colorize(" ", Text.WHITE + Text.BACKGROUND));
 
 
     int[] nums = new int[4];
