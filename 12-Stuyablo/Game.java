@@ -10,9 +10,11 @@ public class Game {
     Text.clear();
     int[] ary = createAry();
     createScreen(HEIGHT, WIDTH, ary);
-    
-    Text.showCursor();
+
+    Text.go(HEIGHT+1, 1);
     System.out.print(Text.colorize(">", Text.WHITE));
+    Text.showCursor();
+
     String input = getInput();
     while (!input.equals("quit") && !input.equals("q")) {
       if (input.equals("")) {
@@ -23,8 +25,8 @@ public class Game {
         createScreen(HEIGHT, WIDTH, ary);
       }
       Text.go(HEIGHT+1, 1);
-      Text.showCursor();
       System.out.print(Text.colorize(">", Text.WHITE));
+      Text.showCursor();
       input = getInput();
     }
     Text.go(HEIGHT+1, 1);
@@ -49,6 +51,8 @@ public class Game {
   }
 
   public static void createScreen (int x, int y, int[] ary) {
+    Text.hideCursor();
+    Text.clear();
     Text.go(1,1);
     borderVertical(x);
     borderHorizontal(y);
