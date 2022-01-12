@@ -8,7 +8,25 @@ public class Game {
   public static void main(String[] args) {
     Text.hideCursor();
     Text.clear();
-    createScreen(HEIGHT, WIDTH);
+    int[] ary = createAry();
+    createScreen(HEIGHT, WIDTH, ary);
+    
+    Text.showCursor();
+    System.out.print(Text.colorize(">", Text.WHITE));
+    String input = getInput();
+    while (!input.equals("quit") && !input.equals("q")) {
+      if (input.equals("")) {
+        createScreen(HEIGHT, WIDTH, ary);
+      }
+      else {
+        ary = createAry();
+        createScreen(HEIGHT, WIDTH, ary);
+      }
+      Text.go(HEIGHT+1, 1);
+      Text.showCursor();
+      System.out.print(Text.colorize(">", Text.WHITE));
+      input = getInput();
+    }
     Text.go(HEIGHT+1, 1);
   }
 
@@ -30,10 +48,10 @@ public class Game {
     }
   }
 
-  public static void createScreen (int x, int y) {
+  public static void createScreen (int x, int y, int[] ary) {
+    Text.go(1,1);
     borderVertical(x);
     borderHorizontal(y);
-    int[] ary = createAry();
     printNums(ary);
 
   }
