@@ -36,7 +36,7 @@ public class Color {
     }
 
     for (int i = 0; i < nums.length; i++) {
-      Text.go(2, (i*x)/4 + 4);
+      Text.go(2, (78/5)*(i+1));
       int colour = Text.WHITE;
       if (nums[i] < 25) {
         colour = Text.RED;
