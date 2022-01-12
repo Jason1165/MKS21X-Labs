@@ -8,7 +8,7 @@ public class Game {
   public static void main(String[] args) {
     Text.hideCursor();
     Text.clear();
-    createBorder(HEIGHT, WIDTH);
+    createScreen(HEIGHT, WIDTH);
     Text.go(HEIGHT+1, 1);
   }
 
@@ -30,8 +30,38 @@ public class Game {
     }
   }
 
-  public static void createBorder(int x, int y) {
+  public static void createScreen (int x, int y) {
     borderVertical(x);
     borderHorizontal(y);
+    int[] ary = createAry();
+    printNums(ary);
+
+  }
+
+  public static int[] createAry() {
+    int[] nums = new int[4];
+    for (int i = 0; i < nums.length; i++) {
+      nums[i] = (int)(Math.random()*99);
+    }
+    return nums;
+  }
+
+  public static void printNums(int[] nums) {
+    for (int i = 0; i < nums.length; i++) {
+      Text.go(2, (78/5)*(i+1));
+      int colour = Text.WHITE;
+      if (nums[i] < 25) {
+        colour = Text.RED;
+      }
+      if (nums[i] > 75) {
+        colour = Text.GREEN;
+      }
+      System.out.print(Text.colorize(""+nums[i], colour));
+    }
+  }
+
+  public static String getInput() {
+    Scanner in = new Scanner(System.in);
+    return in.nextLine();
   }
 }
