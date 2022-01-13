@@ -93,9 +93,11 @@ public class StuyabloGame{
       if(partyTurn){
         //Process user input:
         if(input.equals("attack")){
+          Text.go(HEIGHT/2 +1, 2);
           party.get(whichPlayer).attack(enemies.get(0));
         }
         else if(input.equals("special")){
+          Text.go(HEIGHT/2 + 1, 2);
           party.get(whichPlayer).specialAttack(enemies.get(0));
         }
         whichPlayer++;
@@ -113,6 +115,7 @@ public class StuyabloGame{
         //this block ignores user input!
         //display enemy attack except on turn 0.
         if(turn > 0){
+          Text.go(HEIGHT/2 + 1, 2);
           enemies.get(0).specialAttack(party.get((int)(Math.random()*party.size())));
         }
 
