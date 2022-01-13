@@ -12,16 +12,19 @@ public class StuyabloGame{
   //Display a List of 1-4 adventurers on the rows row through row+3 (4 rows max)
   //Should include Name and HP on 2 separate lines. (more to be added later)
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    for (int i = 0; i < party.size(); i++) {
+      Text.go(startRow, 1+(WIDTH/4)*i);
+      Text.colorize(party.get(i).toString(),Text.WHITE);
+      Text.go(startRow+1, 1+(WIDTH/4)*i);
+      Text.colorize(party.get(i).getHP()+"", Text.WHITE);
+    }
   }
 
   //Display a line of text starting at column 2 of the specified row.
   public static void drawText(String s,int startRow){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    Text.hideCursor();
+    Text.go(startRow, 2);
+    Text.colorize(s, Text.WHITE);
   }
 
   public static void drawScreen(){
@@ -61,16 +64,16 @@ public class StuyabloGame{
     //Things to attack:
     //Make an ArrayList of Adventurers and add 1 enemy to it.
     ArrayList<Adventurer>enemies = new ArrayList<>();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    Adventurer Enemy = new Warrior();
+    enemies.add(Enemy);
 
-    //Adventurers you control:
-    //Make an ArrayList of Adventurers and add 3 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    Adventurer Adam = new Wizard("Adam");
+    Adventurer Bobby = new Wizard("Bobby");
+    Adventurer Classy = new Wizard("Classy");
+    party.add(Adam);
+    party.add(Bobby);
+    party.add(Classy);
 
     //Main loop
     boolean partyTurn = false;
@@ -99,6 +102,7 @@ public class StuyabloGame{
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
+        System.out.print("Player " + whichPlayer);
         whichPlayer++;
 
 
