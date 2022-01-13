@@ -25,9 +25,9 @@ public class StuyabloGame{
   }
 
   public static void drawScreen(){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    borderVertical(HEIGHT);
+    borderHorizontal(WIDTH);
+    Text.go(HEIGHT+1, 1);
   }
 
   public static void borderVertical(int len) {
