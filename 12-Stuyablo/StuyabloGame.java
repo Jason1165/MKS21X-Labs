@@ -64,8 +64,8 @@ public class StuyabloGame{
     //Things to attack:
     //Make an ArrayList of Adventurers and add 1 enemy to it.
     ArrayList<Adventurer>enemies = new ArrayList<>();
-    Adventurer Enemy = new Warrior();
-    enemies.add(Enemy);
+    Adventurer bad = new Warrior();
+    enemies.add(bad);
 
     ArrayList<Adventurer> party = new ArrayList<>();
     Adventurer Adam = new Wizard("Adam");
@@ -84,7 +84,7 @@ public class StuyabloGame{
     String input = "";
     Scanner in = new Scanner(System.in);
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
-
+      Text.clear();
       //Draw the window border
       Text.hideCursor();
       drawScreen();
@@ -93,16 +93,11 @@ public class StuyabloGame{
       if(partyTurn){
         //Process user input:
         if(input.equals("attack")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          party.get(whichPlayer).attack(enemies.get(0));
         }
         else if(input.equals("special")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          party.get(whichPlayer).specialAttack(enemies.get(0));
         }
-        System.out.print("Player " + whichPlayer);
         whichPlayer++;
 
 
@@ -118,10 +113,7 @@ public class StuyabloGame{
         //this block ignores user input!
         //display enemy attack except on turn 0.
         if(turn > 0){
-          //Enemy action choices go here!
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          enemies.get(0).specialAttack(party.get((int)(Math.random()*party.size())));
         }
 
         //after enemy goes, change back to player's turn.
