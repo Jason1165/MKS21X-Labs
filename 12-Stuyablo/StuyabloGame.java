@@ -15,10 +15,20 @@ public class StuyabloGame{
     for (int i = 0; i < party.size(); i++) {
       Text.go(startRow, 2+(WIDTH/4)*i);
       System.out.print(Text.colorize(party.get(i).toString(),Text.WHITE));
+
       Text.go(startRow+1, 2+(WIDTH/4)*i);
-      System.out.print(Text.colorize(party.get(i).getSpecialName()+":"
+      System.out.print(Text.colorize(party.get(i).getSpecialName() +":"
           +party.get(i).getSpecial() + "/"
           +party.get(i).getSpecialMax(), Text.WHITE));
+
+      Text.go(startRow+2, 2+(WIDTH/4)*i);
+      int colour = Text.WHITE;
+      System.out.print(Text.colorize("HP:", Text.WHITE));
+      double percent = (double)party.get(i).getHP() / (double)party.get(i).getmaxHP();
+      if (percent <= 0.25 ) colour = Text.RED;
+      if (percent >= 0.75 ) colour = Text.GREEN;
+      System.out.print(Text.colorize("" + party.get(i).getHP() + "/"
+          + party.get(i).getmaxHP(), colour));
     }
   }
 
@@ -68,10 +78,12 @@ public class StuyabloGame{
     ArrayList<Adventurer>enemies = new ArrayList<>();
     Adventurer bad = new Warrior();
     enemies.add(bad);
+    int tempHP = (int)(Math.random()*200) + 100;
+    enemies.get(0).setHP(tempHP); enemies.get(0).setmaxHP(tempHP);
 
     ArrayList<Adventurer> party = new ArrayList<>();
     Adventurer Adam = new Wizard("Adam");
-    Adventurer Bobby = new Wizard("Bobby");
+    Adventurer Bobby = new Warrior("Bobby");
     Adventurer Classy = new Wizard("Classy");
     party.add(Adam);
     party.add(Bobby);
@@ -95,12 +107,12 @@ public class StuyabloGame{
       if(partyTurn){
         //Process user input:
         if(input.equals("attack") || input.equals("")){
-          Text.go(HEIGHT/2 - 1, 2);
+          Text.go(HEIGHT/2 - 5, 2);
           String x = party.get(whichPlayer).attack(enemies.get(0));
           System.out.print(Text.colorize(x, Text.WHITE));
         }
         else if(input.equals("special")){
-          Text.go(HEIGHT/2 - 1, 2);
+          Text.go(HEIGHT/2 - 5, 2);
           String x = party.get(whichPlayer).specialAttack(enemies.get(0));
           System.out.print(Text.colorize(x, Text.WHITE));
         }
@@ -119,7 +131,7 @@ public class StuyabloGame{
         //this block ignores user input!
         //display enemy attack except on turn 0.
         if(turn > 0){
-          Text.go(HEIGHT/2 - 1, 2);
+          Text.go(HEIGHT/2 - 5, 2);
           String x = enemies.get(0).specialAttack(party.get((int)(Math.random()*party.size())));
           System.out.print(Text.colorize(x, Text.WHITE));
         }
