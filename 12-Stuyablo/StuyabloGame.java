@@ -16,7 +16,9 @@ public class StuyabloGame{
       Text.go(startRow, 2+(WIDTH/4)*i);
       System.out.print(Text.colorize(party.get(i).toString(),Text.WHITE));
       Text.go(startRow+1, 2+(WIDTH/4)*i);
-      System.out.print(Text.colorize(party.get(i).getHP()+"", Text.WHITE));
+      System.out.print(Text.colorize(party.get(i).getSpecialName()+":"
+          +party.get(i).getSpecial() + "/"
+          +party.get(i).getSpecialMax(), Text.WHITE));
     }
   }
 
@@ -92,13 +94,15 @@ public class StuyabloGame{
       //display event based on last turn's input
       if(partyTurn){
         //Process user input:
-        if(input.equals("attack")){
-          Text.go(HEIGHT/2 +1, 2);
-          party.get(whichPlayer).attack(enemies.get(0));
+        if(input.equals("attack") || input.equals("")){
+          Text.go(HEIGHT/2 - 1, 2);
+          String x = party.get(whichPlayer).attack(enemies.get(0));
+          System.out.print(Text.colorize(x, Text.WHITE));
         }
         else if(input.equals("special")){
-          Text.go(HEIGHT/2 + 1, 2);
-          party.get(whichPlayer).specialAttack(enemies.get(0));
+          Text.go(HEIGHT/2 - 1, 2);
+          String x = party.get(whichPlayer).specialAttack(enemies.get(0));
+          System.out.print(Text.colorize(x, Text.WHITE));
         }
         whichPlayer++;
 
@@ -115,8 +119,9 @@ public class StuyabloGame{
         //this block ignores user input!
         //display enemy attack except on turn 0.
         if(turn > 0){
-          Text.go(HEIGHT/2 + 1, 2);
-          enemies.get(0).specialAttack(party.get((int)(Math.random()*party.size())));
+          Text.go(HEIGHT/2 - 1, 2);
+          String x = enemies.get(0).specialAttack(party.get((int)(Math.random()*party.size())));
+          System.out.print(Text.colorize(x, Text.WHITE));
         }
 
         //after enemy goes, change back to player's turn.
