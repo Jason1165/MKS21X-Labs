@@ -1,6 +1,7 @@
 public class Wizard extends Adventurer {
   private int mana;
   private int age;
+  private int manaMax;
 
   public Wizard(){
     this("Randolph");
@@ -14,32 +15,35 @@ public class Wizard extends Adventurer {
     super(name, 20+(int)(Math.random()*10));
     setMana(mana);
     setAge(age);
+    this.manaMax = 16;
   }
 
   // Wizard Methods
 
-  public void attack(Damageable other) {
+  public String attack(Damageable other) {
     int damage = (int)(Math.random()*8)+1;
     other.applyDamage(damage);
     setMana(getMana()+2);
-    System.out.println(this + " attacked " + other + " for " + damage + " damage!");
+    return this + " attacked " + other + " for " + damage + " damage!";
   }
 
-  public void specialAttack(Damageable other) {
+  public String specialAttack(Damageable other) {
+    String txt = "";
     if (getAge() <= 100) {
-      System.out.println("You are inexperienced!");
+      txt += "You are inexperienced!";
       attack(other);
     }
     else if (getMana() >= 5) {
       int damage = (int)(Math.random()*10) + getAge()/51;
       other.applyDamage(damage);
-      System.out.println(this + " summoned " + getAge()/51 + " fireballs upon " + other + " for " + damage + " damage!" );
+      txt += this + " summoned " + getAge()/51 + " fireballs upon " + other + " for " + damage + " damage!" ;
       setMana(getMana() - 5);
     }
     else {
-      System.out.println("Not enough mana!");
-      attack(other);
+      txt += "Not enough mana!";
+      txt += attack(other);
     }
+    return txt;
   }
 
   // get methods
@@ -61,4 +65,15 @@ public class Wizard extends Adventurer {
   public void setAge(int a) {
     this.age = a;
   }
+
+  public String getSpecialName(){
+    return "Mana";
+  }
+  public int getSpecialMax(){
+    return manaMax;
+  }
+  public int getSpecial(){
+    return mana;
+  }
+
 }

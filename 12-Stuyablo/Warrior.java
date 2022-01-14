@@ -40,8 +40,8 @@ public class Warrior extends Adventurer {
              + other + " for " + damage + " damage! "+warcry;
             setRage(getRage() - 10);
 	    }else{
-        txt = attack(other);
-			    txt = "Not enough rage! \n" + txt;
+			    txt += "Not enough rage! \n";
+          txt += attack(other);
           return txt;
 	    }
       return txt;
@@ -65,7 +65,7 @@ public class Warrior extends Adventurer {
     public String getSpecialName(){
       return "Rage";
     }
-    
+
     public int getSpecialMax(){
       return rageMax;
     }
