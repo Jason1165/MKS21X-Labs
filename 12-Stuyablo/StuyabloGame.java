@@ -40,26 +40,27 @@ public class StuyabloGame{
   }
 
   public static void drawScreen(){
-    borderVertical(HEIGHT);
-    borderHorizontal(WIDTH);
+    Text.hideCursor();
+    borderVertical("*", HEIGHT);
+    borderHorizontal("*", WIDTH);
     Text.go(HEIGHT+1, 1);
   }
 
-  public static void borderVertical(int len) {
+  public static void borderVertical(String text, int len) {
     for (int i = 1 ; i <= len; i++) {
       Text.go(i, 1);
-      System.out.print(Text.colorize(" ", BORDER_BACKGROUND));
+      System.out.print(Text.colorize(text, Text.BLACK, BORDER_BACKGROUND));
       Text.go(i, WIDTH);
-      System.out.print(Text.colorize(" ", BORDER_BACKGROUND));
+      System.out.print(Text.colorize(text, Text.BLACK, BORDER_BACKGROUND));
     }
   }
 
-  public static void borderHorizontal(int len) {
+  public static void borderHorizontal(String text, int len) {
     for (int i = 1 ; i <= len; i++) {
       Text.go(1, i);
-      System.out.print(Text.colorize(" ", BORDER_BACKGROUND));
+      System.out.print(Text.colorize(text, Text.BLACK, BORDER_BACKGROUND));
       Text.go(HEIGHT, i);
-      System.out.print(Text.colorize(" ", BORDER_BACKGROUND));
+      System.out.print(Text.colorize(text, Text.BLACK, BORDER_BACKGROUND));
     }
   }
 
