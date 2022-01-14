@@ -9,6 +9,7 @@ public abstract class Adventurer implements Damageable{
     public abstract String specialAttack(Damageable other);
     public abstract int getSpecial();
     public abstract int getSpecialMax();
+    public abstract String getSpecialName();
 
     public Adventurer(){
   	   setName("Lester");
