@@ -40,7 +40,7 @@ public class Wizard extends Adventurer {
       setMana(getMana() - 5);
     }
     else {
-      txt += "Not enough mana!";
+      txt += "Not enough mana! ";
       txt += attack(other);
     }
     return txt;

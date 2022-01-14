@@ -40,7 +40,7 @@ public class Warrior extends Adventurer {
              + other + " for " + damage + " damage! "+warcry;
             setRage(getRage() - 10);
 	    }else{
-			    txt += "Not enough rage! \n";
+			    txt += "Not enough rage! ";
           txt += attack(other);
           return txt;
 	    }
