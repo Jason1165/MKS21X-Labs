@@ -21,12 +21,9 @@ public abstract class Adventurer implements Damageable{
     public Adventurer(String name, int hp){
        setName(name);
        setHP(hp);
+       setmaxHP(hp);
     }
 
-    public Adventurer(String name, int hp, int maxHP) {
-      this(name, hp);
-      setmaxHP(maxHP);
-    }
 
     //toString method
     public String toString(){
