@@ -11,7 +11,7 @@ public abstract class Adventurer implements Damageable{
     public abstract int getSpecialMax();
 
     public Adventurer(){
-  	   this("Lester");
+  	   setName("Lester");
     }
 
     public Adventurer(String name){
@@ -19,14 +19,13 @@ public abstract class Adventurer implements Damageable{
     }
 
     public Adventurer(String name, int hp){
-       this.name = name;
-       this.HP = hp;
+       setName(name);
+       setHP(hp);
     }
 
     public Adventurer(String name, int hp, int maxHP) {
-      this.name = name;
-      this.HP = hp;
-      this.maxHP = maxHP;
+      this(name, hp);
+      setmaxHP(maxHP);
     }
 
     //toString method
